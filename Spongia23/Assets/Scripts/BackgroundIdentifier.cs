@@ -5,18 +5,11 @@ using UnityEngine;
 public class BackgroundIdentifier : MonoBehaviour
 {
     public bool Active;
-    private Vector3 cameraPosition;
-
-    private void Start()
-    {
-        Vector3 position = transform.position;
-        cameraPosition = new Vector3(position.x, position.y, -10);
-    }
 
     public void MoveCameraToBackground()
     {
-        var camera = GameObject.FindObjectOfType<Camera>();
-        camera.transform.position = cameraPosition;
+        var cameraFollow = GameObject.FindObjectOfType<CameraFollow>();
+        cameraFollow.Target = transform;
         ResetActiveBackgrounds();
         Active = true;
     }
