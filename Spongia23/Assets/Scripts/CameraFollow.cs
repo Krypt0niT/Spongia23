@@ -11,6 +11,7 @@ public class CameraFollow : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (Target == null) return;
         Vector3 desiredPosition = Target.position + Offset;
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, SmoothSpeed * Time.deltaTime);
         transform.position = smoothedPosition;
