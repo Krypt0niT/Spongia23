@@ -1,12 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ButtonInteraction : MonoBehaviour
 {
     public bool SmoothTransition;
     public BackgroundIdentifier BackgroundIdentifier;
+    public float AlphaSpeed = 10;
     public byte Alpha = 10;
+
+    private Animation animation;
+
+    private void Start()
+    {
+        GetComponent<SpriteRenderer>().material.color = new Color(1,1,1,0);
+        animation = GetComponent<Animation>();
+    }
 
     public void MoveBackground()
     {
@@ -15,14 +25,17 @@ public class ButtonInteraction : MonoBehaviour
     
     public void HoverStart()
     {
-        var color = (Color32)GetComponent<SpriteRenderer>().color;
-        GetComponent<SpriteRenderer>().color = new Color32(color.r,color.g,color.b, Alpha);
+        animation.Stop();
+        animation.clip = animation.GetClip("ShowHighlight");
+
+        animation.Play();
     }
 
     public void HoverEnd()
     {
-        var color = (Color32)GetComponent<SpriteRenderer>().color;
-        GetComponent<SpriteRenderer>().color = new Color32(color.r, color.g, color.b, 0);
+        animation.Stop();
+        animation.clip = animation.GetClip("HideHighlight");
+        animation.Play();
     }
 }
 
