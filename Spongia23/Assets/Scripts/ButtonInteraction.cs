@@ -7,18 +7,18 @@ public class ButtonInteraction : MonoBehaviour
 {
     public bool SmoothTransition;
     public BackgroundIdentifier BackgroundIdentifier;
-    public float AlphaSpeed = 10;
-    public byte Alpha = 10;
+    public ButtonType ButtonType;
 
     private Animation animation;
 
     private void Start()
     {
         GetComponent<SpriteRenderer>().material.color = new Color(1,1,1,0);
+        GetComponent<SpriteRenderer>().color = new Color(1,1,1,1);
         animation = GetComponent<Animation>();
     }
 
-    public void MoveBackground()
+    public void Interact()
     {
         BackgroundIdentifier.MoveCameraToBackground(SmoothTransition);
     }
