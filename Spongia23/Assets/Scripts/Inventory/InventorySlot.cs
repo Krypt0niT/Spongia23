@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
 
 public class InventorySlot : MonoBehaviour
 {
@@ -8,9 +9,24 @@ public class InventorySlot : MonoBehaviour
 
     [SerializeField] private Item item = null;
 
+    private GameObject image;
+
     private void Start()
     {
+        image = transform.GetChild(0).gameObject;
         ChangeIcon();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Mouse1)) 
+        {
+            SetInactive(this);
+        }
+        if (Selected)
+        {
+            image.transform.position = Input.mousePosition;
+        }
     }
 
     public void SelectInventorySlot()
@@ -18,11 +34,10 @@ public class InventorySlot : MonoBehaviour
         var inventorySlots = GameObject.FindObjectsOfType<InventorySlot>();
         foreach (var inventorySlot in inventorySlots)
         {
-            inventorySlot.Selected = false;
-            inventorySlot.GetComponent<Image>().color = new Color32(36, 36, 36, 255);
+            SetInactive(inventorySlot);
+
         }
-        this.Selected = true;
-        GetComponent<Image>().color = Color.black;
+        SetActiveSelf();
     }
 
     public void RemoveItem()
@@ -42,19 +57,39 @@ public class InventorySlot : MonoBehaviour
         return this.item;
     }
 
+    public void SetInactive()
+    {
+        Selected = false;
+        GetComponent<Image>().color = new Color32(36, 36, 36, 255);
+        image.transform.localPosition = new Vector3(0, 0, 0);
+    }
+
+    private void SetInactive(InventorySlot inventorySlot)
+    {
+        inventorySlot.Selected = false;
+        inventorySlot.GetComponent<Image>().color = new Color32(36, 36, 36, 255);
+        image.transform.localPosition = new Vector3(0, 0, 0);
+    }
+
+    private void SetActiveSelf()
+    {
+        this.Selected = true;
+        GetComponent<Image>().color = Color.black;
+    }
+
     private void ChangeIcon()
     {
-        var image = transform.GetChild(0).gameObject.GetComponent<Image>();
-
+        if (image == null) return;
+        var imageComponent = this.image.GetComponent<Image>();
         if (item != null)
         {
-            image.sprite = item.GetComponent<Image>().sprite;
-            image.color = new Color(1, 1, 1, 1);
+            imageComponent.sprite = item.GetComponent<Image>().sprite;
+            imageComponent.color = new Color(1, 1, 1, 1);
         }
         else
         {
-            image.sprite = null;
-            image.color = new Color(1, 1, 1, 0);
+            imageComponent.sprite = null;
+            imageComponent.color = new Color(1, 1, 1, 0);
         }
     }
 }

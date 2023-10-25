@@ -20,7 +20,22 @@ public class ButtonInteraction : MonoBehaviour
 
     public void Interact()
     {
-        BackgroundIdentifier.MoveCameraToBackground(SmoothTransition);
+        if (ButtonType == ButtonType.Travel)
+        {
+            BackgroundIdentifier.MoveCameraToBackground(SmoothTransition);
+        }
+        if (ButtonType == ButtonType.Monolog) 
+        {
+            print("monolog");
+        }
+        if (ButtonType == ButtonType.ItemFunction)
+        {
+            if (this.transform.parent.name == "AbawuwuWheel")
+            {
+                ItemFunctions.UseAbawuwuWheel(this);
+            }
+            print("use item");
+        }
     }
     
     public void HoverStart()
