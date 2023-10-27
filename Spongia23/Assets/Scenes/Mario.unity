@@ -339,6 +339,7 @@ MonoBehaviour:
   SmoothTransition: 1
   BackgroundIdentifier: {fileID: 1152763221}
   SceneName: 
+  Item: {fileID: 0}
   ButtonType: 0
 --- !u!61 &56224639
 BoxCollider2D:
@@ -676,7 +677,7 @@ Transform:
   m_Children:
   - {fileID: 514548173}
   - {fileID: 517035394}
-  - {fileID: 2139735797}
+  - {fileID: 1661969149}
   - {fileID: 584882535}
   - {fileID: 1530710335}
   m_Father: {fileID: 0}
@@ -908,6 +909,7 @@ MonoBehaviour:
   SmoothTransition: 1
   BackgroundIdentifier: {fileID: 0}
   SceneName: ShakesAndFidget
+  Item: {fileID: 0}
   ButtonType: 3
 --- !u!61 &178077489
 BoxCollider2D:
@@ -1136,6 +1138,7 @@ MonoBehaviour:
   SmoothTransition: 1
   BackgroundIdentifier: {fileID: 1927254244}
   SceneName: 
+  Item: {fileID: 0}
   ButtonType: 0
 --- !u!61 &206486257
 BoxCollider2D:
@@ -1364,6 +1367,7 @@ MonoBehaviour:
   SmoothTransition: 1
   BackgroundIdentifier: {fileID: 602091039}
   SceneName: 
+  Item: {fileID: 0}
   ButtonType: 0
 --- !u!61 &217860691
 BoxCollider2D:
@@ -1592,6 +1596,7 @@ MonoBehaviour:
   SmoothTransition: 1
   BackgroundIdentifier: {fileID: 1927254244}
   SceneName: 
+  Item: {fileID: 0}
   ButtonType: 0
 --- !u!61 &244472186
 BoxCollider2D:
@@ -2221,6 +2226,7 @@ MonoBehaviour:
   SmoothTransition: 1
   BackgroundIdentifier: {fileID: 602091039}
   SceneName: 
+  Item: {fileID: 0}
   ButtonType: 0
 --- !u!61 &514548176
 BoxCollider2D:
@@ -2449,6 +2455,7 @@ MonoBehaviour:
   SmoothTransition: 0
   BackgroundIdentifier: {fileID: 0}
   SceneName: 
+  Item: {fileID: 0}
   ButtonType: 2
 --- !u!61 &517035397
 BoxCollider2D:
@@ -3409,6 +3416,7 @@ MonoBehaviour:
   SmoothTransition: 1
   BackgroundIdentifier: {fileID: 1152763221}
   SceneName: 
+  Item: {fileID: 0}
   ButtonType: 0
 --- !u!61 &812407208
 BoxCollider2D:
@@ -3891,6 +3899,7 @@ MonoBehaviour:
   SmoothTransition: 1
   BackgroundIdentifier: {fileID: 76582219}
   SceneName: 
+  Item: {fileID: 0}
   ButtonType: 0
 --- !u!61 &876286517
 BoxCollider2D:
@@ -4335,6 +4344,7 @@ MonoBehaviour:
   SmoothTransition: 1
   BackgroundIdentifier: {fileID: 0}
   SceneName: Pokemon
+  Item: {fileID: 0}
   ButtonType: 3
 --- !u!61 &1095616104
 BoxCollider2D:
@@ -5141,6 +5151,7 @@ MonoBehaviour:
   SmoothTransition: 1
   BackgroundIdentifier: {fileID: 0}
   SceneName: 
+  Item: {fileID: 0}
   ButtonType: 2
 --- !u!61 &1439528455
 BoxCollider2D:
@@ -5469,6 +5480,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1661969148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1661969149}
+  m_Layer: 0
+  m_Name: empty
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1661969149
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661969148}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2139735797}
+  m_Father: {fileID: 76582222}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1706202285
 GameObject:
   m_ObjectHideFlags: 0
@@ -5621,6 +5664,7 @@ MonoBehaviour:
   SmoothTransition: 1
   BackgroundIdentifier: {fileID: 330870621}
   SceneName: 
+  Item: {fileID: 0}
   ButtonType: 0
 --- !u!61 &1715159385
 BoxCollider2D:
@@ -6195,12 +6239,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2139735796}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.32684, y: 0.15602, z: -1}
-  m_LocalScale: {x: 0.1958568, y: 0.23991886, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.32684004, y: 0.15602005, z: -1}
+  m_LocalScale: {x: 0.1958568, y: 0.23991887, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 76582222}
+  m_Father: {fileID: 1661969149}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!111 &2139735798
 Animation:
@@ -6234,6 +6278,7 @@ MonoBehaviour:
   SmoothTransition: 0
   BackgroundIdentifier: {fileID: 0}
   SceneName: 
+  Item: {fileID: 0}
   ButtonType: 4
 --- !u!61 &2139735800
 BoxCollider2D:
