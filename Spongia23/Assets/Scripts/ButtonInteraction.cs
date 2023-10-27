@@ -28,26 +28,33 @@ public class ButtonInteraction : MonoBehaviour
         {
             BackgroundIdentifier.MoveCameraToBackground(SmoothTransition);
         }
+
         if (ButtonType == ButtonType.Monolog) 
         {
             print("monolog");
         }
+
+        if (ButtonType == ButtonType.Portal)
+        {
+            SceneManager.LoadScene(SceneName);
+        }
+
         if (ButtonType == ButtonType.ItemFunction)
         {
             if (this.transform.parent.name == "AbawuwuWheel")
             {
                 ItemFunctions.UseAbawuwuWheel(this);
             }
+            if (this.transform.parent.name == "Portal")
+            {
+                ItemFunctions.UsePortal(this);
+            }
             print("use item");
         }
-        if (ButtonType == ButtonType.Portal)
-        {
-            SceneManager.LoadScene(SceneName);
-        }
+
         if (ButtonType == ButtonType.PickUp)
         {
             PickUpItem();
-            GameObject.Destroy(this.gameObject.transform.parent.gameObject);
         }
     }
     
@@ -75,6 +82,8 @@ public class ButtonInteraction : MonoBehaviour
             return;
         }
         emptyInventorySlot.SetItem(Item);
+        GameObject.Destroy(this.gameObject.transform.parent.gameObject);
+
     }
 }
 

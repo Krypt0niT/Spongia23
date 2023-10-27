@@ -24,6 +24,23 @@ public class ItemFunctions : MonoBehaviour
             ReplaceItemInInventory(selectedInventorySlot, pokeball);
         }
     }
+
+    public static void UsePortal(ButtonInteraction buttonInteraction)
+    {
+        var selectedInventorySlot = GameObject.FindObjectsOfType<InventorySlot>().Where(x => x.Selected).FirstOrDefault();
+        if (selectedInventorySlot == null) return;
+
+        var item = selectedInventorySlot.GetItem();
+        if (item.Type == ItemType.Zapalovac)
+        {
+            //insane animation
+            var buttonParent = buttonInteraction.transform.parent;
+            buttonParent.GetComponent<ChangeTexture>().Change();
+            buttonParent.transform.parent.Find("Platform").GetComponent<ChangeTexture>().Change();
+            buttonInteraction.ButtonType = ButtonType.Portal;
+        }
+    }
+
     private static void ReplaceItemInInventory(InventorySlot inventorySlot, Item item)
     {
         inventorySlot.RemoveItem();
