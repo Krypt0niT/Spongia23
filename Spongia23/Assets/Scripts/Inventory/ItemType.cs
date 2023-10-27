@@ -3,5 +3,12 @@ public enum ItemType
     Hubka,
     Topanky,
     Zapalovac,
-    Peniaze
+    Peniaze,
+    Diamant,
+    Emerald,
+    Kost,
+    Mec,
+    MinceDoKolesa,
+    PlnyPokeball,
+    Pokeball
 }
