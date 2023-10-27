@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/ShakesAndFidget.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Mario.unity
+    guid: 30d57485462cced4c8b6aa43727b6400
+  - enabled: 1
+    path: Assets/Scenes/Minecraft.unity
+    guid: 47a4ba50704e37e47a9d340432ac7876
+  - enabled: 1
+    path: Assets/Scenes/Pokemon.unity
+    guid: 4edb34c7af5cf1d438216e54a2de7d97
   m_configObjects: {}

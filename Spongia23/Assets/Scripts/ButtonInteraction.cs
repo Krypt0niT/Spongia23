@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ButtonInteraction : MonoBehaviour
 {
     public bool SmoothTransition;
     public BackgroundIdentifier BackgroundIdentifier;
+    public string SceneName;
     public ButtonType ButtonType;
 
     private Animation animation;
@@ -35,6 +37,14 @@ public class ButtonInteraction : MonoBehaviour
                 ItemFunctions.UseAbawuwuWheel(this);
             }
             print("use item");
+        }
+        if (ButtonType == ButtonType.Portal)
+        {
+            SceneManager.LoadScene(SceneName);
+        }
+        if (ButtonType == ButtonType.PickUp)
+        {
+            print("zodvihni");
         }
     }
     
