@@ -9,15 +9,25 @@ public class ItemFunctions : MonoBehaviour
         if (selectedInventorySlot == null) return;
 
         var item = selectedInventorySlot.GetItem();
-        if (item.Type == ItemType.Hubka)
+        if (item.Type == ItemType.MinceDoKolesa)
         {
             var itemCollection = GameObject.FindObjectOfType<ItemCollection>();
             var topanky = itemCollection.Items.First(x => x.Type == ItemType.Topanky);
             //spin animation
-            selectedInventorySlot.RemoveItem();
-            selectedInventorySlot.SetItem(topanky);
-            selectedInventorySlot.SetInactive();
+            ReplaceItemInInventory(selectedInventorySlot, topanky);
         }
-
+        if (item.Type == ItemType.Hubka)
+        {
+            var itemCollection = GameObject.FindObjectOfType<ItemCollection>();
+            var pokeball = itemCollection.Items.First(x => x.Type == ItemType.Pokeball);
+            //spin animation
+            ReplaceItemInInventory(selectedInventorySlot, pokeball);
+        }
+    }
+    private static void ReplaceItemInInventory(InventorySlot inventorySlot, Item item)
+    {
+        inventorySlot.RemoveItem();
+        inventorySlot.SetItem(item);
+        inventorySlot.SetInactive();
     }
 }

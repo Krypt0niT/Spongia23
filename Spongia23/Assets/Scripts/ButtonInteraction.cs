@@ -9,6 +9,8 @@ public class ButtonInteraction : MonoBehaviour
     public bool SmoothTransition;
     public BackgroundIdentifier BackgroundIdentifier;
     public string SceneName;
+    public Item Item;
+
     public ButtonType ButtonType;
 
     private Animation animation;
@@ -44,7 +46,8 @@ public class ButtonInteraction : MonoBehaviour
         }
         if (ButtonType == ButtonType.PickUp)
         {
-            print("zodvihni");
+            PickUpItem();
+            GameObject.Destroy(this.gameObject.transform.parent.gameObject);
         }
     }
     
@@ -61,6 +64,17 @@ public class ButtonInteraction : MonoBehaviour
         animation.Stop();
         animation.clip = animation.GetClip("HideHighlight");
         animation.Play();
+    }
+
+    private void PickUpItem()
+    {
+        var emptyInventorySlot = GameObject.FindObjectsOfType<InventorySlot>().FirstOrDefault(x => x.GetItem() == null);
+        if (emptyInventorySlot == null) 
+        {
+            //niaky efekt ze nemame miesto
+            return;
+        }
+        emptyInventorySlot.SetItem(Item);
     }
 }
 
