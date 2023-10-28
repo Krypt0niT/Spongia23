@@ -9,6 +9,6 @@ public class GameObjectChange : MonoBehaviour
     public void Change()
     {
         GameObject.SetActive(true);
-        gameObject.SetActive(false);
+        gameObject.transform.parent.gameObject.SetActive(false);
     }
 }

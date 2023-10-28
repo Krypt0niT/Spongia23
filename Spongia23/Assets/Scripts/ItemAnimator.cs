@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ItemAnimator : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class ItemAnimator : MonoBehaviour
 {
     private Animation animation;
     private bool ShouldPlay;
 
     private void Start()
     {
-        animation = GetComponent<Animation>();    
+        animation = transform.GetChild(0).GetComponent<Animation>();    
     }
 
     private void Update()
@@ -26,19 +26,10 @@ public class ItemAnimator : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void Enter()
     {
-        
-    }
-
-    public void Left()
-    {
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
         ShouldPlay = true;
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    public void Left()
     {
         ShouldPlay = false;
     }
