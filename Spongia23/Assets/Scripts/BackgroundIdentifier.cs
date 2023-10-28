@@ -6,7 +6,7 @@ public class BackgroundIdentifier : MonoBehaviour
 {
     public void MoveCameraToBackground(bool smooth = false)
     {
-        var cameraFollow = GameObject.FindObjectOfType<CameraFollow>(true);
+        var cameraFollow = GameObject.FindObjectOfType<CameraFollow>();
 
         if (!smooth)
         {
