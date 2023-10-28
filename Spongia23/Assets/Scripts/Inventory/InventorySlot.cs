@@ -10,10 +10,12 @@ public class InventorySlot : MonoBehaviour
     [SerializeField] private Item item = null;
 
     private GameObject image;
+    private Canvas canvas;
 
     private void Start()
     {
         image = transform.GetChild(0).gameObject;
+        canvas = transform.parent.GetComponent<Canvas>();
         ChangeIcon();
     }
 
@@ -32,12 +34,26 @@ public class InventorySlot : MonoBehaviour
     public void SelectInventorySlot()
     {
         var inventorySlots = GameObject.FindObjectsOfType<InventorySlot>();
-        foreach (var inventorySlot in inventorySlots)
+        
+        if (!Selected)
         {
-            SetInactive(inventorySlot);
-
+            var selectedSlot = inventorySlots.FirstOrDefault(x => x.Selected);
+            if (selectedSlot != null && item == null)
+            {
+                SetItem(selectedSlot.GetItem());
+                selectedSlot.RemoveItem();
+                SetInactive(selectedSlot);
+                SetInactive();
+            }
+            else
+            {
+                if (item != null)
+                {
+                    SetActiveSelf();
+                }
+            }
         }
-        SetActiveSelf();
+        else SetInactive();
     }
 
     public void RemoveItem()
@@ -61,19 +77,27 @@ public class InventorySlot : MonoBehaviour
     {
         Selected = false;
         GetComponent<Image>().color = new Color32(36, 36, 36, 255);
-        image.transform.localPosition = new Vector3(0, 0, 0);
+        ResetImagePosition(image);
     }
 
     private void SetInactive(InventorySlot inventorySlot)
     {
         inventorySlot.Selected = false;
         inventorySlot.GetComponent<Image>().color = new Color32(36, 36, 36, 255);
-        image.transform.localPosition = new Vector3(0, 0, 0);
+        ResetImagePosition(inventorySlot.transform.GetChild(0).gameObject);
     }
 
     private void SetActiveSelf()
     {
+        var inventorySlots = GameObject.FindObjectsOfType<InventorySlot>();
+
+        foreach (var inventorySlot in inventorySlots)
+        {
+            SetInactive(inventorySlot);
+            inventorySlot.canvas.sortingOrder = -1;
+        }
         this.Selected = true;
+        canvas.sortingOrder = 0;
         GetComponent<Image>().color = Color.black;
     }
 
@@ -91,5 +115,10 @@ public class InventorySlot : MonoBehaviour
             imageComponent.sprite = null;
             imageComponent.color = new Color(1, 1, 1, 0);
         }
+    }
+
+    private void ResetImagePosition(GameObject image)
+    {
+        image.transform.localPosition = new Vector3(0, 0, 0);
     }
 }

@@ -75,7 +75,10 @@ public class ButtonInteraction : MonoBehaviour
 
     private void PickUpItem()
     {
-        var emptyInventorySlot = GameObject.FindObjectsOfType<InventorySlot>().FirstOrDefault(x => x.GetItem() == null);
+        var emptyInventorySlot = GameObject.FindObjectsOfType<InventorySlot>()
+            .OrderBy(x => x.gameObject.name)
+            .FirstOrDefault(x => x.GetItem() == null);
+
         if (emptyInventorySlot == null) 
         {
             //niaky efekt ze nemame miesto
