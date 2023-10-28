@@ -12,7 +12,7 @@ public class ChangeTexture : MonoBehaviour
         Invoke("ChangeTextur", time);
     }
 
-    void ChangeTextur()
+    private void ChangeTextur()
     {
         GetComponent<SpriteRenderer>().sprite = Sprite;
     }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,7 +8,6 @@ public class ButtonInteraction : MonoBehaviour
     public BackgroundIdentifier BackgroundIdentifier;
     public string SceneName;
     public Item Item;
-
     public ButtonType ButtonType;
 
     private Animation animation;
@@ -86,7 +83,6 @@ public class ButtonInteraction : MonoBehaviour
         }
         emptyInventorySlot.SetItem(Item);
         GameObject.Destroy(this.gameObject.transform.parent.gameObject);
-
     }
 }
 
