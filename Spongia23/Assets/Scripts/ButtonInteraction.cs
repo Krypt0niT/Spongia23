@@ -70,7 +70,6 @@ public class ButtonInteraction : MonoBehaviour
     {
         animation.Stop();
         animation.clip = animation.GetClip("ShowHighlight");
-
         animation.Play();
     }
 

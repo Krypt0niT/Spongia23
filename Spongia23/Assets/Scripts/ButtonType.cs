@@ -5,5 +5,6 @@ public enum ButtonType
     ItemFunction,
     Portal,
     PickUp,
+    ChangeGameObject,
     Other
 }

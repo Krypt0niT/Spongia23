@@ -23,9 +23,12 @@ public class ItemFunctions : MonoBehaviour
         if (item.Type == ItemType.Hubka)
         {
             var itemCollection = GameObject.FindObjectOfType<ItemCollection>();
-            var pokeball = itemCollection.Items.First(x => x.Type == ItemType.Pokeball);
-            //spin animation
-            ReplaceItemInInventory(selectedInventorySlot, pokeball);
+            var topanky = itemCollection.Items.First(x => x.Type == ItemType.Pokeball);
+            StartCoroutine(SpinWheel(
+                buttonInteraction.transform.parent.gameObject,
+                selectedInventorySlot,
+                topanky
+                ));
         }
     }
 
