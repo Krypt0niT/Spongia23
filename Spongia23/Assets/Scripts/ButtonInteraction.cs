@@ -40,15 +40,15 @@ public class ButtonInteraction : MonoBehaviour
 
         if (ButtonType == ButtonType.ItemFunction)
         {
-            if (this.transform.parent.name == "AbawuwuWheel")
+            if (transform.parent.name == "AbawuwuWheel")
             {
                 itemFunctions.UseAbawuwuWheel(this);
             }
-            if (this.transform.parent.name == "Portal")
+            if (transform.parent.name == "Portal")
             {
                 itemFunctions.UsePortal(this);
             }
-            if (this.transform.parent.name == "Kotol")
+            if (transform.parent.name == "Kotol")
             {
                 itemFunctions.UseCauldron(this);
             }
@@ -58,6 +58,11 @@ public class ButtonInteraction : MonoBehaviour
         if (ButtonType == ButtonType.PickUp)
         {
             PickUpItem();
+        }
+
+        if (ButtonType == ButtonType.ChangeGameObject)
+        {
+            GetComponent<GameObjectChange>().Change();
         }
     }
     
