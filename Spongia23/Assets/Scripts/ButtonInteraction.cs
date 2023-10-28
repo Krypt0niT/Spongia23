@@ -25,7 +25,8 @@ public class ButtonInteraction : MonoBehaviour
     {
         if (ButtonType == ButtonType.Travel)
         {
-            BackgroundIdentifier.MoveCameraToBackground(SmoothTransition);
+            if (!FindObjectsOfType<InventorySlot>().Any(x => x.Selected))
+                BackgroundIdentifier.MoveCameraToBackground(SmoothTransition);
         }
 
         if (ButtonType == ButtonType.Monolog) 
@@ -63,6 +64,18 @@ public class ButtonInteraction : MonoBehaviour
         if (ButtonType == ButtonType.ChangeGameObject)
         {
             GetComponent<GameObjectChange>().Change();
+        }
+
+        if (ButtonType == ButtonType.ConversationAndItem)
+        {
+            // do dialog
+            var selectedItem = GameObject.FindObjectsOfType<InventorySlot>().FirstOrDefault(x => x.Selected);
+            if (selectedItem == null) return;
+            if (selectedItem.GetItem().Type == ItemType.Peniaze)
+            {
+                GetComponent<GameObjectChange>().Change();
+                selectedItem.RemoveItem();
+            }
         }
     }
     

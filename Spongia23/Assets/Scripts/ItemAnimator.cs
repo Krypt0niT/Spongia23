@@ -10,7 +10,7 @@ public class ItemAnimator : MonoBehaviour
 
     private void Start()
     {
-        animation = transform.GetChild(0).GetComponent<Animation>();    
+        animation = transform.GetChild(0).GetComponent<Animation>();
     }
 
     private void Update()

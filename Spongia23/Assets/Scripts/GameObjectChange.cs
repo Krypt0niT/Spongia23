@@ -5,10 +5,14 @@ using UnityEngine;
 public class GameObjectChange : MonoBehaviour
 {
     public GameObject GameObject;
+    public bool DestroySelf = false;
 
     public void Change()
     {
-        GameObject.SetActive(true);
-        gameObject.transform.parent.gameObject.SetActive(false);
+        GameObject.SetActive(!GameObject.activeInHierarchy);
+        if (DestroySelf)
+        {
+            gameObject.transform.parent.gameObject.SetActive(false);
+        }
     }
 }

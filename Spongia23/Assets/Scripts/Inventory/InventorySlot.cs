@@ -58,6 +58,7 @@ public class InventorySlot : MonoBehaviour
     public void RemoveItem()
     {
         this.item = null;
+        SetInactive();
         ChangeIcon();
     }
 

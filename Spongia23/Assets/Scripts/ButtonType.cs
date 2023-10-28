@@ -6,5 +6,6 @@ public enum ButtonType
     Portal,
     PickUp,
     ChangeGameObject,
+    ConversationAndItem,
     Other
 }
