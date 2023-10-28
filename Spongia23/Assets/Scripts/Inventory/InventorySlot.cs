@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
-using UnityEngine.Rendering;
 
 public class InventorySlot : MonoBehaviour
 {
