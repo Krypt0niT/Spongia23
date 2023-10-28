@@ -11,11 +11,13 @@ public class ButtonInteraction : MonoBehaviour
     public ButtonType ButtonType;
 
     private Animation animation;
+    private ItemFunctions itemFunctions;
 
     private void Start()
     {
         GetComponent<SpriteRenderer>().material.color = new Color(1,1,1,0);
         GetComponent<SpriteRenderer>().color = new Color(1,1,1,1);
+        itemFunctions = GameObject.FindObjectOfType<ItemFunctions>();
         animation = GetComponent<Animation>();
     }
 
@@ -40,15 +42,15 @@ public class ButtonInteraction : MonoBehaviour
         {
             if (this.transform.parent.name == "AbawuwuWheel")
             {
-                ItemFunctions.UseAbawuwuWheel(this);
+                itemFunctions.UseAbawuwuWheel(this);
             }
             if (this.transform.parent.name == "Portal")
             {
-                ItemFunctions.UsePortal(this);
+                itemFunctions.UsePortal(this);
             }
             if (this.transform.parent.name == "Kotol")
             {
-                ItemFunctions.UseCauldron(this);
+                itemFunctions.UseCauldron(this);
             }
             print("use item");
         }

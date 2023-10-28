@@ -1,9 +1,10 @@
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 
 public class ItemFunctions : MonoBehaviour
 {
-    public static void UseAbawuwuWheel(ButtonInteraction buttonInteraction)
+    public void UseAbawuwuWheel(ButtonInteraction buttonInteraction)
     {
         var selectedInventorySlot = GameObject.FindObjectsOfType<InventorySlot>().Where(x => x.Selected).FirstOrDefault();
         if (selectedInventorySlot == null) return;
@@ -13,8 +14,11 @@ public class ItemFunctions : MonoBehaviour
         {
             var itemCollection = GameObject.FindObjectOfType<ItemCollection>();
             var topanky = itemCollection.Items.First(x => x.Type == ItemType.Topanky);
-            //spin animation
-            ReplaceItemInInventory(selectedInventorySlot, topanky);
+            StartCoroutine(SpinWheel(
+                buttonInteraction.transform.parent.gameObject,
+                selectedInventorySlot,
+                topanky
+                ));
         }
         if (item.Type == ItemType.Hubka)
         {
@@ -25,7 +29,7 @@ public class ItemFunctions : MonoBehaviour
         }
     }
 
-    public static void UsePortal(ButtonInteraction buttonInteraction)
+    public void UsePortal(ButtonInteraction buttonInteraction)
     {
         var selectedInventorySlot = GameObject.FindObjectsOfType<InventorySlot>().Where(x => x.Selected).FirstOrDefault();
         if (selectedInventorySlot == null) return;
@@ -41,7 +45,7 @@ public class ItemFunctions : MonoBehaviour
         }
     }
 
-    public static void UseCauldron(ButtonInteraction buttonInteraction)
+    public void UseCauldron(ButtonInteraction buttonInteraction)
     {
         var selectedInventorySlot = GameObject.FindObjectsOfType<InventorySlot>().Where(x => x.Selected).FirstOrDefault();
         if (selectedInventorySlot == null) return;
@@ -56,9 +60,22 @@ public class ItemFunctions : MonoBehaviour
         }
     }
 
-    private static void ReplaceItemInInventory(InventorySlot inventorySlot, Item item)
+    private void ReplaceItemInInventory(InventorySlot inventorySlot, Item item)
     {
         inventorySlot.RemoveItem();
+        inventorySlot.SetItem(item);
+        inventorySlot.SetInactive();
+    }
+
+    private IEnumerator SpinWheel(GameObject wheel, InventorySlot inventorySlot, Item item)
+    {
+        var animation = wheel.GetComponent<Animation>();
+
+        animation.clip = animation.GetClip("AbawuwuWheel");
+        animation.Play();
+        inventorySlot.RemoveItem();
+        yield return new WaitForSeconds(6.4f);
+        ReplaceItemInInventory(inventorySlot, item);
         inventorySlot.SetItem(item);
         inventorySlot.SetInactive();
     }
