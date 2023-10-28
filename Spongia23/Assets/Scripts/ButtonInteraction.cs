@@ -46,6 +46,10 @@ public class ButtonInteraction : MonoBehaviour
             {
                 ItemFunctions.UsePortal(this);
             }
+            if (this.transform.parent.name == "Kotol")
+            {
+                ItemFunctions.UseCauldron(this);
+            }
             print("use item");
         }
 

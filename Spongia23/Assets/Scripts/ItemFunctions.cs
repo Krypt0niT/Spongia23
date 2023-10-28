@@ -41,6 +41,21 @@ public class ItemFunctions : MonoBehaviour
         }
     }
 
+    public static void UseCauldron(ButtonInteraction buttonInteraction)
+    {
+        var selectedInventorySlot = GameObject.FindObjectsOfType<InventorySlot>().Where(x => x.Selected).FirstOrDefault();
+        if (selectedInventorySlot == null) return;
+
+        var item = selectedInventorySlot.GetItem();
+        if (item.Type == ItemType.Topanky)
+        {
+            var itemCollection = GameObject.FindObjectOfType<ItemCollection>();
+            var peniaze = itemCollection.Items.First(x => x.Type == ItemType.Peniaze);
+            //insane animacia pre cauldron
+            ReplaceItemInInventory(selectedInventorySlot, peniaze);
+        }
+    }
+
     private static void ReplaceItemInInventory(InventorySlot inventorySlot, Item item)
     {
         inventorySlot.RemoveItem();
