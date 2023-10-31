@@ -63,6 +63,20 @@ public class ItemFunctions : MonoBehaviour
         }
     }
 
+    public void KillBowser(ButtonInteraction buttonInteraction)
+    {
+        var selectedInventorySlot = GameObject.FindObjectsOfType<InventorySlot>().FirstOrDefault(x => x.Selected);
+        if (selectedInventorySlot == null)
+        {
+            return;
+        }
+        if (selectedInventorySlot.GetItem().Type == ItemType.Mec)
+        {
+            buttonInteraction.transform.parent.GetComponent<ChangeTexture>().Change();
+            buttonInteraction.transform.parent.GetComponent<GameObjectChange>().Change();
+        }
+    }
+
     private void ReplaceItemInInventory(InventorySlot inventorySlot, Item item)
     {
         inventorySlot.RemoveItem();

@@ -22,6 +22,7 @@ public class ButtonInteraction : MonoBehaviour
         GetComponent<SpriteRenderer>().color = new Color(1,1,1,1);
         itemFunctions = GameObject.FindObjectOfType<ItemFunctions>();
         animation = GetComponent<Animation>();
+
         if (HasMonolog)
         {
             var monologGameObject = transform.parent.Find("Monolog").gameObject;
@@ -34,15 +35,18 @@ public class ButtonInteraction : MonoBehaviour
     {
         if (HasMonolog)
         {
-            if (!monologAnimation.isPlaying)
+            if (!FindObjectsOfType<InventorySlot>().Any(x => x.Selected))
             {
-                if (monologShown) 
-                    monologAnimation.clip = monologAnimation.GetClip("MonologHide");
-                else 
-                    monologAnimation.clip = monologAnimation.GetClip("MonologShow");
+                if (!monologAnimation.isPlaying)
+                {
+                    if (monologShown)
+                        monologAnimation.clip = monologAnimation.GetClip("MonologHide");
+                    else
+                        monologAnimation.clip = monologAnimation.GetClip("MonologShow");
 
-                monologAnimation.Play();
-                monologShown = !monologShown;
+                    monologAnimation.Play();
+                    monologShown = !monologShown;
+                }
             }
         }
 
@@ -75,6 +79,10 @@ public class ButtonInteraction : MonoBehaviour
             if (transform.parent.name == "Kotol")
             {
                 itemFunctions.UseCauldron(this);
+            }
+            if (transform.parent.name == "Bowser")
+            {
+                itemFunctions.KillBowser(this);
             }
             print("use item");
         }
