@@ -112,16 +112,24 @@ public class ButtonInteraction : MonoBehaviour
     
     public void HoverStart()
     {
-        animation.Stop();
-        animation.clip = animation.GetClip("ShowHighlight");
-        animation.Play();
+        if (animation.IsPlaying("HideHighlight"))
+            animation.PlayQueued("ShowHighlight");
+        else
+        {
+            animation.Play("ShowHighlight");
+
+        }
     }
 
     public void HoverEnd()
     {
-        animation.Stop();
-        animation.clip = animation.GetClip("HideHighlight");
-        animation.Play();
+        if (animation.IsPlaying("ShowHighlight"))
+            animation.PlayQueued("HideHighlight");
+        else
+        {
+            animation.Play("HideHighlight");
+
+        }
     }
 
     private void PickUpItem()
