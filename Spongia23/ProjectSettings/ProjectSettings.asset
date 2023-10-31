@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: TheChunkers
   productName: Spongia23
-  defaultCursor: {fileID: 2800000, guid: 9c4fddcf867e69f4891661258ef7bdcc, type: 3}
+  defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.1254902, g: 0.1254902, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
