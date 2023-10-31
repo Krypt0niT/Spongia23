@@ -1,7 +1,7 @@
 public enum ItemType
 {
     Hubka,
-    Topanky,
+    Rukavice,
     Zapalovac,
     Peniaze,
     Diamant,

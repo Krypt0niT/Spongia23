@@ -8,9 +8,12 @@ public class ButtonInteraction : MonoBehaviour
     public BackgroundIdentifier BackgroundIdentifier;
     public string SceneName;
     public Item Item;
+    public bool HasMonolog;
     public ButtonType ButtonType;
 
     private Animation animation;
+    private Animation monologAnimation;
+    private bool monologShown = false;
     private ItemFunctions itemFunctions;
 
     private void Start()
@@ -19,10 +22,30 @@ public class ButtonInteraction : MonoBehaviour
         GetComponent<SpriteRenderer>().color = new Color(1,1,1,1);
         itemFunctions = GameObject.FindObjectOfType<ItemFunctions>();
         animation = GetComponent<Animation>();
+        if (HasMonolog)
+        {
+            var monologGameObject = transform.parent.Find("Monolog").gameObject;
+            monologAnimation = monologGameObject.GetComponent<Animation>();
+            monologGameObject.GetComponent<SpriteRenderer>().material.color = new Color(1, 1, 1, 0);
+        }
     }
 
     public void Interact()
     {
+        if (HasMonolog)
+        {
+            if (!monologAnimation.isPlaying)
+            {
+                if (monologShown) 
+                    monologAnimation.clip = monologAnimation.GetClip("MonologHide");
+                else 
+                    monologAnimation.clip = monologAnimation.GetClip("MonologShow");
+
+                monologAnimation.Play();
+                monologShown = !monologShown;
+            }
+        }
+
         if (ButtonType == ButtonType.Travel)
         {
             if (!FindObjectsOfType<InventorySlot>().Any(x => x.Selected))
@@ -77,7 +100,7 @@ public class ButtonInteraction : MonoBehaviour
                 selectedItem.RemoveItem();
             }
         }
-    }
+    }  
     
     public void HoverStart()
     {

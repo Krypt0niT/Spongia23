@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3316577509830764317}
   - component: {fileID: 4394669551963062379}
   m_Layer: 5
-  m_Name: Topanky
+  m_Name: Rukavice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88,6 +88,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc349b36c47c48845874525859a96491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemName: "Top\xE1nky"
+  ItemName: Rukavice
   Description: 
   Type: 1

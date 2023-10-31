@@ -13,7 +13,7 @@ public class ItemFunctions : MonoBehaviour
         if (item.Type == ItemType.MinceDoKolesa)
         {
             var itemCollection = GameObject.FindObjectOfType<ItemCollection>();
-            var topanky = itemCollection.Items.First(x => x.Type == ItemType.Topanky);
+            var topanky = itemCollection.Items.First(x => x.Type == ItemType.Rukavice);
             StartCoroutine(SpinWheel(
                 buttonInteraction.transform.parent.gameObject,
                 selectedInventorySlot,
@@ -54,7 +54,7 @@ public class ItemFunctions : MonoBehaviour
         if (selectedInventorySlot == null) return;
 
         var item = selectedInventorySlot.GetItem();
-        if (item.Type == ItemType.Topanky)
+        if (item.Type == ItemType.Rukavice)
         {
             var itemCollection = GameObject.FindObjectOfType<ItemCollection>();
             var peniaze = itemCollection.Items.First(x => x.Type == ItemType.Peniaze);
