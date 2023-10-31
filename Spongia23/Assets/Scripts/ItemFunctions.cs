@@ -45,6 +45,7 @@ public class ItemFunctions : MonoBehaviour
             buttonParent.GetComponent<ChangeTexture>().Change();
             buttonParent.transform.parent.Find("Platform").GetComponent<ChangeTexture>().Change();
             buttonInteraction.ButtonType = ButtonType.Portal;
+            buttonParent.transform.parent.GetComponentInChildren<EffectMaintainer>().Available = true;
         }
     }
 

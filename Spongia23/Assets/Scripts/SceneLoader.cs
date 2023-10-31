@@ -16,5 +16,15 @@ public class SceneLoader : MonoBehaviour
             gameScene.gameObject.SetActive(false);
         }
         currentGame.gameObject.SetActive(true);
+        ReloadEffects();
+    }
+
+    private void ReloadEffects() 
+    {
+        var EffectsToReload = GameObject.FindObjectsOfType<EffectMaintainer>().ToList();
+        foreach (var effect in EffectsToReload)
+        {
+            effect.Maintain();
+        }
     }
 }
