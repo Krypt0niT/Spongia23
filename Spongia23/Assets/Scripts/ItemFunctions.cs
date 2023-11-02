@@ -94,6 +94,37 @@ public class ItemFunctions : MonoBehaviour
         }
     }
 
+    public void UseSnorlax(ButtonInteraction buttonInteraction)
+    {
+        var selectedInventorySlot = GameObject.FindObjectsOfType<InventorySlot>().Where(x => x.Selected).FirstOrDefault();
+        if (selectedInventorySlot == null) return;
+
+        var item = selectedInventorySlot.GetItem();
+        if (item.Type == ItemType.Dog)
+        {
+            
+            //insane animacia pre yneskodnenie
+            buttonInteraction.GetComponent<GameObjectChange>().Change();
+        }
+    }
+
+    public void UseDeadSnorlax(ButtonInteraction buttonInteraction)
+    {
+        var selectedInventorySlot = GameObject.FindObjectsOfType<InventorySlot>().Where(x => x.Selected).FirstOrDefault();
+        if (selectedInventorySlot == null) return;
+
+        var item = selectedInventorySlot.GetItem();
+        if (item.Type == ItemType.Pokeball)
+        {
+            var itemCollection = GameObject.FindObjectOfType<ItemCollection>();
+            var peniaze = itemCollection.Items.First(x => x.Type == ItemType.PlnyPokeball);
+            //insane animacia pre chytenie
+            ReplaceItemInInventory(selectedInventorySlot, peniaze);
+            Destroy(buttonInteraction.transform.parent.gameObject);
+        }
+    }
+
+
     public void UseDog(ButtonInteraction buttonInteraction)
     {
         var selectedInventorySlot = GameObject.FindObjectsOfType<InventorySlot>().Where(x => x.Selected).FirstOrDefault();

@@ -96,6 +96,14 @@ public class ButtonInteraction : MonoBehaviour
             {
                 itemFunctions.UseVillager2(this);
             }
+            if (transform.parent.name == "Snorlax")
+            {
+                itemFunctions.UseSnorlax(this);
+            }
+            if (transform.parent.name == "DeadSnorlax")
+            {
+                itemFunctions.UseDeadSnorlax(this);
+            }
             print("use item");
         }
 
