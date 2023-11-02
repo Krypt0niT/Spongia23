@@ -84,6 +84,18 @@ public class ButtonInteraction : MonoBehaviour
             {
                 itemFunctions.KillBowser(this);
             }
+            if (transform.parent.name == "Pes")
+            {
+                itemFunctions.UseDog(this);
+            }
+            if (transform.parent.name == "Villager1")
+            {
+                itemFunctions.UseVillager1(this);
+            }
+            if (transform.parent.name == "Villager2")
+            {
+                itemFunctions.UseVillager2(this);
+            }
             print("use item");
         }
 

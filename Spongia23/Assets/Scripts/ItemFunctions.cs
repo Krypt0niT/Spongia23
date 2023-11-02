@@ -64,6 +64,51 @@ public class ItemFunctions : MonoBehaviour
         }
     }
 
+    public void UseVillager1(ButtonInteraction buttonInteraction)
+    {
+        var selectedInventorySlot = GameObject.FindObjectsOfType<InventorySlot>().Where(x => x.Selected).FirstOrDefault();
+        if (selectedInventorySlot == null) return;
+
+        var item = selectedInventorySlot.GetItem();
+        if (item.Type == ItemType.Zapalovac)
+        {
+            var itemCollection = GameObject.FindObjectOfType<ItemCollection>();
+            var emerald = itemCollection.Items.First(x => x.Type == ItemType.Emerald);
+            //insane animacia pre trade
+            ReplaceItemInInventory(selectedInventorySlot, emerald);
+        }
+    }
+
+    public void UseVillager2(ButtonInteraction buttonInteraction)
+    {
+        var selectedInventorySlot = GameObject.FindObjectsOfType<InventorySlot>().Where(x => x.Selected).FirstOrDefault();
+        if (selectedInventorySlot == null) return;
+
+        var item = selectedInventorySlot.GetItem();
+        if (item.Type == ItemType.Emerald)
+        {
+            var itemCollection = GameObject.FindObjectOfType<ItemCollection>();
+            var peniaze = itemCollection.Items.First(x => x.Type == ItemType.Mec);
+            //insane animacia pre trade
+            ReplaceItemInInventory(selectedInventorySlot, peniaze);
+        }
+    }
+
+    public void UseDog(ButtonInteraction buttonInteraction)
+    {
+        var selectedInventorySlot = GameObject.FindObjectsOfType<InventorySlot>().Where(x => x.Selected).FirstOrDefault();
+        if (selectedInventorySlot == null) return;
+
+        var item = selectedInventorySlot.GetItem();
+        if (item.Type == ItemType.Kost)
+        {
+            var itemCollection = GameObject.FindObjectOfType<ItemCollection>();
+            var dog = itemCollection.Items.First(x => x.Type == ItemType.Dog);
+            //insane animacia pre ochocenie psa
+            ReplaceItemInInventory(selectedInventorySlot, dog);
+        }
+    }
+
     public void KillBowser(ButtonInteraction buttonInteraction)
     {
         var selectedInventorySlot = GameObject.FindObjectsOfType<InventorySlot>().FirstOrDefault(x => x.Selected);

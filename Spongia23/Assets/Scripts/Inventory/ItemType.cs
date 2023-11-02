@@ -10,5 +10,6 @@ public enum ItemType
     Mec,
     MinceDoKolesa,
     PlnyPokeball,
-    Pokeball
+    Pokeball,
+    Dog
 }
