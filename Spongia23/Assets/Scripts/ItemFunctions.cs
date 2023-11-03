@@ -170,6 +170,22 @@ public class ItemFunctions : MonoBehaviour
         }
     }
 
+    public void UseWitch(ButtonInteraction buttonInteraction)
+    {
+        var selectedInventorySlot = GameObject.FindObjectsOfType<InventorySlot>().FirstOrDefault(x => x.Selected);
+        if (selectedInventorySlot == null)
+        {
+            return;
+        }
+        if (selectedInventorySlot.GetItem().Type == ItemType.PlnyPokeball)
+        {
+            var itemCollection = GameObject.FindObjectOfType<ItemCollection>();
+            var sponge = itemCollection.Items.First(x => x.Type == ItemType.Spongia);
+            //insane animacia pre ochocenie psa
+            ReplaceItemInInventory(selectedInventorySlot, sponge);
+        }
+    }
+
     private void ReplaceItemInInventory(InventorySlot inventorySlot, Item item)
     {
         inventorySlot.RemoveItem();

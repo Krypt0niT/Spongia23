@@ -98,6 +98,10 @@ public class ButtonInteraction : MonoBehaviour
             {
                 itemFunctions.UseToad(this);
             }
+            if (transform.parent.name == "Witch")
+            {
+                itemFunctions.UseWitch(this);
+            }
             print("use item");
         }
 
