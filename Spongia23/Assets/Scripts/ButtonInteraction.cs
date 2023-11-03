@@ -94,6 +94,10 @@ public class ButtonInteraction : MonoBehaviour
             {
                 itemFunctions.UseDeadSnorlax(this);
             }
+            if (transform.parent.name == "Toad")
+            {
+                itemFunctions.UseToad(this);
+            }
             print("use item");
         }
 
@@ -142,7 +146,7 @@ public class ButtonInteraction : MonoBehaviour
         }
     }
 
-    private void PickUpItem()
+    public void PickUpItem()
     {
         var emptyInventorySlot = GameObject.FindObjectsOfType<InventorySlot>()
             .OrderBy(x => x.gameObject.name)

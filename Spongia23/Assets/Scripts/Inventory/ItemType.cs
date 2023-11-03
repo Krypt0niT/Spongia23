@@ -11,5 +11,6 @@ public enum ItemType
     MinceDoKolesa,
     PlnyPokeball,
     Pokeball,
-    Dog
+    Dog,
+    Spongia
 }

@@ -64,6 +64,19 @@ public class ItemFunctions : MonoBehaviour
         }
     }
 
+    public void UseToad(ButtonInteraction buttonInteraction)
+    {
+        var selectedInventorySlot = GameObject.FindObjectsOfType<InventorySlot>().Where(x => x.Selected).FirstOrDefault();
+        if (selectedInventorySlot == null) return;
+
+        var item = selectedInventorySlot.GetItem();
+        if (item.Type == ItemType.Diamant)
+        {
+            buttonInteraction.transform.parent.GetComponent<GameObjectChange>().Change();
+            buttonInteraction.transform.parent.Find("Lock").gameObject.GetComponent<ChangeTexture>().Change();
+        }
+    }
+
     public void UseVillager1(ButtonInteraction buttonInteraction)
     {
         var selectedInventorySlot = GameObject.FindObjectsOfType<InventorySlot>().Where(x => x.Selected).FirstOrDefault();
@@ -123,7 +136,6 @@ public class ItemFunctions : MonoBehaviour
             Destroy(buttonInteraction.transform.parent.gameObject);
         }
     }
-
 
     public void UseDog(ButtonInteraction buttonInteraction)
     {
