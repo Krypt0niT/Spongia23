@@ -10967,10 +10967,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SmoothTransition: 0
   BackgroundIdentifier: {fileID: 0}
-  SceneName: Mario
+  SceneName: 
   Item: {fileID: 0}
   HasMonolog: 0
-  ButtonType: 3
+  ButtonType: 7
 --- !u!212 &1053647914
 SpriteRenderer:
   m_ObjectHideFlags: 0

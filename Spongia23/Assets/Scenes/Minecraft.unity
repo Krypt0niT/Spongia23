@@ -8880,7 +8880,7 @@ GameObject:
   - component: {fileID: 1864133615}
   - component: {fileID: 1864133616}
   m_Layer: 0
-  m_Name: witch
+  m_Name: Witch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
