@@ -149,8 +149,12 @@ public class ItemFunctions : MonoBehaviour
         }
         if (selectedInventorySlot.GetItem().Type == ItemType.Mec)
         {
-            buttonInteraction.transform.parent.GetComponent<ChangeTexture>().Change();
-            buttonInteraction.transform.parent.GetComponent<GameObjectChange>().Change();
+            var changeComponents = buttonInteraction.transform.parent.GetComponents<GameObjectChange>();
+            foreach (var component in changeComponents)
+            {
+                component.Change();
+            }
+            buttonInteraction.transform.parent.gameObject.SetActive(false);
         }
     }
 
