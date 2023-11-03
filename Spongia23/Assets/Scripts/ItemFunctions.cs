@@ -74,6 +74,7 @@ public class ItemFunctions : MonoBehaviour
         {
             buttonInteraction.transform.parent.GetComponent<GameObjectChange>().Change();
             buttonInteraction.transform.parent.Find("Lock").gameObject.GetComponent<ChangeTexture>().Change();
+            selectedInventorySlot.RemoveItem();
         }
     }
 
