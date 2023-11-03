@@ -154,7 +154,7 @@ public class ItemFunctions : MonoBehaviour
             {
                 component.Change();
             }
-            buttonInteraction.transform.parent.gameObject.SetActive(false);
+            buttonInteraction.transform.parent.gameObject.SetActive(false); 
         }
     }
 

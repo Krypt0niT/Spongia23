@@ -12,9 +12,8 @@ public class ButtonInteraction : MonoBehaviour
     public ButtonType ButtonType;
 
     private Animation animation;
-    private Animation monologAnimation;
-    private bool monologShown = false;
     private ItemFunctions itemFunctions;
+    private Monolog monolog;
 
     private void Start()
     {
@@ -26,7 +25,7 @@ public class ButtonInteraction : MonoBehaviour
         if (HasMonolog)
         {
             var monologGameObject = transform.parent.Find("Monolog").gameObject;
-            monologAnimation = monologGameObject.GetComponent<Animation>();
+            monolog = monologGameObject.GetComponent<Monolog>();
             monologGameObject.GetComponent<SpriteRenderer>().material.color = new Color(1, 1, 1, 0);
         }
     }
@@ -37,16 +36,7 @@ public class ButtonInteraction : MonoBehaviour
         {
             if (!FindObjectsOfType<InventorySlot>().Any(x => x.Selected))
             {
-                if (!monologAnimation.isPlaying)
-                {
-                    if (monologShown)
-                        monologAnimation.clip = monologAnimation.GetClip("MonologHide");
-                    else
-                        monologAnimation.clip = monologAnimation.GetClip("MonologShow");
-
-                    monologAnimation.Play();
-                    monologShown = !monologShown;
-                }
+                monolog.Play();
             }
         }
 
