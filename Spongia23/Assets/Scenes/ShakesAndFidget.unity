@@ -33010,6 +33010,7 @@ GameObject:
   - component: {fileID: 1292616404}
   - component: {fileID: 1292616406}
   - component: {fileID: 1292616405}
+  - component: {fileID: 1292616407}
   m_Layer: 0
   m_Name: Monolog
   m_TagString: Untagged
@@ -33041,10 +33042,10 @@ Animation:
   m_GameObject: {fileID: 1292616403}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 8492cb54ea84051438e3150f121b9251, type: 2}
+  m_Animation: {fileID: 0}
   m_Animations:
-  - {fileID: 7400000, guid: 8492cb54ea84051438e3150f121b9251, type: 2}
-  - {fileID: 7400000, guid: 1383498030535554eadf5e6129d574da, type: 2}
+  - {fileID: 7400000, guid: 29cd57beafa8d6f4dbe1be2bead1cdcf, type: 2}
+  - {fileID: 7400000, guid: 9e1c76f39f80a00449b4f733461e9263, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -33090,7 +33091,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 29f38a704bb015a4eb0f6ee9b8b37895, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1e40e696ed5b71b4bab024e1fa822f64, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -33101,6 +33102,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1292616407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292616403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c85101e819d6c0f4aaa45f7ea5bc48a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowClip: {fileID: 7400000, guid: 9e1c76f39f80a00449b4f733461e9263, type: 2}
+  HideClip: {fileID: 7400000, guid: 29cd57beafa8d6f4dbe1be2bead1cdcf, type: 2}
 --- !u!1 &1304924491
 GameObject:
   m_ObjectHideFlags: 0
