@@ -44,6 +44,7 @@ public class ItemFunctions : MonoBehaviour
             var buttonParent = buttonInteraction.transform.parent;
             buttonParent.GetComponent<ChangeTexture>().Change();
             buttonParent.transform.parent.Find("Platform").GetComponent<ChangeTexture>().Change();
+            buttonParent.GetComponents<AudioSource>().Last().Play();
             buttonInteraction.ButtonType = ButtonType.Portal;
             buttonParent.transform.parent.GetComponentInChildren<EffectMaintainer>().GetComponent<ParticleSystem>().Play();
             buttonParent.transform.parent.GetComponentInChildren<EffectMaintainer>().Available = true;

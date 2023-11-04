@@ -61,6 +61,16 @@ public class ButtonInteraction : MonoBehaviour
 
         if (ButtonType == ButtonType.Portal)
         {
+            if (transform.parent.name == "Portal")
+            {
+                //minecraft
+                GameObject.Find("PortalSoundPlayer").GetComponents<AudioSource>().First().Play() ;
+            }
+            if (transform.parent.name == "Ovca")
+            {
+                //minecraft
+                GameObject.Find("PortalSoundPlayer").GetComponents<AudioSource>().Last().Play();
+            }
             SceneManager.LoadScene(SceneName);
         }
 
@@ -190,7 +200,6 @@ public class ButtonInteraction : MonoBehaviour
             wheelAnimation.clip = wheelAnimation.GetClip("AbawuwuWheelIdle");
             wheelAnimation.Play();
         }
-
         if (transform.parent.name == "abawuwuInside")
         {
             var wheel = GameObject.Find("AbawuwuWheel").gameObject;
@@ -202,11 +211,24 @@ public class ButtonInteraction : MonoBehaviour
             var kotol = GameObject.Find("Kotol").gameObject;
             kotol.GetComponents<AudioSource>().Last().Play();
         }
-
         if (transform.parent.name == "Carodejnica")
         {
             var kotol = GameObject.Find("Kotol").gameObject;
             kotol.GetComponents<AudioSource>().Last().Stop();
+        }
+        
+        if (gameObject.name == "LeftButton" && transform.parent.name == "studna")
+        {
+            var portal = GameObject.Find("Portal").gameObject;
+            if (GameObject.Find("portalglow").GetComponent<EffectMaintainer>().Available)
+            {
+                portal.GetComponents<AudioSource>().Last().Play();
+            }
+        }
+        if (gameObject.name == "RightButton" && transform.parent.name == "PortalBg")
+        {
+            var portal = GameObject.Find("Portal").gameObject;
+            portal.GetComponents<AudioSource>().Last().Stop();
         }
     }
 }
