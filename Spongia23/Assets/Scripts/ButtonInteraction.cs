@@ -46,8 +46,11 @@ public class ButtonInteraction : MonoBehaviour
         {
             if (!FindObjectsOfType<InventorySlot>().Any(x => x.Selected))
                 BackgroundIdentifier.MoveCameraToBackground(SmoothTransition);
-            foreach (var item in toLoad) item.GetComponentInChildren<VideoPlayer>().Play();
-            foreach (var item in toUnload) item.GetComponentInChildren<VideoPlayer>().Stop();
+            if (SceneManager.GetActiveScene().name == "Minecraft") 
+            {
+                foreach (var item in toLoad) if (!item.GetComponentInChildren<VideoPlayer>().isPlaying) item.GetComponentInChildren<VideoPlayer>().Play();
+                foreach (var item in toUnload) item.GetComponentInChildren<VideoPlayer>().Stop();
+            }
             TravelSpecialCases();
         }
 

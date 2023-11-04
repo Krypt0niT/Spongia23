@@ -151,6 +151,8 @@ public class ItemFunctions : MonoBehaviour
         {
             var itemCollection = GameObject.FindObjectOfType<ItemCollection>();
             var dog = itemCollection.Items.First(x => x.Type == ItemType.Dog);
+            GameObject.Find("Pes").gameObject.active = false;
+            GameObject.Find("BGD").gameObject.active = false;
             //insane animacia pre ochocenie psa
             ReplaceItemInInventory(selectedInventorySlot, dog);
         }
