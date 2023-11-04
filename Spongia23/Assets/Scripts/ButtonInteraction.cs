@@ -1,6 +1,7 @@
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class ButtonInteraction : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class ButtonInteraction : MonoBehaviour
     public Item Item;
     public bool HasMonolog;
     public ButtonType ButtonType;
-
+    public GameObject[] toLoad;
+    public GameObject[] toUnload;
     private Animation animation;
     private ItemFunctions itemFunctions;
     private Monolog monolog;
@@ -44,7 +46,8 @@ public class ButtonInteraction : MonoBehaviour
         {
             if (!FindObjectsOfType<InventorySlot>().Any(x => x.Selected))
                 BackgroundIdentifier.MoveCameraToBackground(SmoothTransition);
-
+            foreach (var item in toLoad) item.GetComponentInChildren<VideoPlayer>().Play();
+            foreach (var item in toUnload) item.GetComponentInChildren<VideoPlayer>().Stop();
             TravelSpecialCases();
         }
 
