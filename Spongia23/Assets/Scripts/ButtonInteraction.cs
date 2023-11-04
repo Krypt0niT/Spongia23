@@ -135,6 +135,7 @@ public class ButtonInteraction : MonoBehaviour
             {
                 GetComponent<GameObjectChange>().Change();
                 selectedItem.RemoveItem();
+                transform.parent.GetComponent<AudioSource>().Play();
             }
         }
     }  
@@ -191,6 +192,18 @@ public class ButtonInteraction : MonoBehaviour
         {
             var wheel = GameObject.Find("AbawuwuWheel").gameObject;
             wheel.GetComponents<AudioSource>().Last().Stop();
+        }
+
+        if (transform.parent.name == "CaroobchodImage")
+        {
+            var kotol = GameObject.Find("Kotol").gameObject;
+            kotol.GetComponents<AudioSource>().Last().Play();
+        }
+
+        if (transform.parent.name == "Carodejnica")
+        {
+            var kotol = GameObject.Find("Kotol").gameObject;
+            kotol.GetComponents<AudioSource>().Last().Stop();
         }
     }
 }

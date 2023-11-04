@@ -58,6 +58,8 @@ public class ItemFunctions : MonoBehaviour
         var item = selectedInventorySlot.GetItem();
         if (item.Type == ItemType.Rukavice)
         {
+            var soundEffect = buttonInteraction.transform.parent.GetComponents<AudioSource>().First();
+            soundEffect.Play();
             var itemCollection = GameObject.FindObjectOfType<ItemCollection>();
             var peniaze = itemCollection.Items.First(x => x.Type == ItemType.Peniaze);
             //insane animacia pre cauldron
