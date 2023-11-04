@@ -44,6 +44,8 @@ public class ButtonInteraction : MonoBehaviour
         {
             if (!FindObjectsOfType<InventorySlot>().Any(x => x.Selected))
                 BackgroundIdentifier.MoveCameraToBackground(SmoothTransition);
+
+            TravelSpecialCases();
         }
 
         if (ButtonType == ButtonType.Monolog) 
@@ -112,7 +114,13 @@ public class ButtonInteraction : MonoBehaviour
 
         if (ButtonType == ButtonType.ChangeGameObject)
         {
-            GetComponent<GameObjectChange>().Change();
+            var gameChangeComponent = GetComponent<GameObjectChange>();
+            var audioSource = gameChangeComponent.GameObject.GetComponent<AudioSource>();
+            if (audioSource != null)
+            {
+                audioSource.Play();
+            }
+            gameChangeComponent.Change();
         }
 
         if (ButtonType == ButtonType.ConversationAndItem)
@@ -163,6 +171,24 @@ public class ButtonInteraction : MonoBehaviour
         }
         emptyInventorySlot.SetItem(Item);
         GameObject.Destroy(this.gameObject.transform.parent.gameObject);
+    }
+
+    private void TravelSpecialCases()
+    {
+        if (transform.parent.name == "AbawuwuVan") 
+        {
+            var wheel = GameObject.Find("AbawuwuWheel").gameObject;
+            wheel.GetComponents<AudioSource>().Last().Play();
+            var wheelAnimation = wheel.GetComponent<Animation>();
+            wheelAnimation.clip = wheelAnimation.GetClip("AbawuwuWheelIdle");
+            wheelAnimation.Play();
+        }
+
+        if (transform.parent.name == "abawuwuInside")
+        {
+            var wheel = GameObject.Find("AbawuwuWheel").gameObject;
+            wheel.GetComponents<AudioSource>().Last().Stop();
+        }
     }
 }
 

@@ -65,6 +65,14 @@ public class InventorySlot : MonoBehaviour
     public void SetItem(Item item)
     {
         this.item = item;
+        
+        if (item.PickUpSound != null)
+        {
+            var audioSource = transform.parent.parent.GetComponent<AudioSource>();
+            audioSource.clip = item.PickUpSound;
+            audioSource.Play();
+        }
+
         ChangeIcon();
     }
 

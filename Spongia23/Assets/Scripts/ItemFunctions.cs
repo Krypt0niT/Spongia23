@@ -45,6 +45,7 @@ public class ItemFunctions : MonoBehaviour
             buttonParent.GetComponent<ChangeTexture>().Change();
             buttonParent.transform.parent.Find("Platform").GetComponent<ChangeTexture>().Change();
             buttonInteraction.ButtonType = ButtonType.Portal;
+            buttonParent.transform.parent.GetComponentInChildren<EffectMaintainer>().GetComponent<ParticleSystem>().Play();
             buttonParent.transform.parent.GetComponentInChildren<EffectMaintainer>().Available = true;
         }
     }
@@ -197,7 +198,10 @@ public class ItemFunctions : MonoBehaviour
     private IEnumerator SpinWheel(GameObject wheel, InventorySlot inventorySlot, Item item)
     {
         var animation = wheel.GetComponent<Animation>();
+        var audioSources = wheel.GetComponents<AudioSource>();
 
+        audioSources.Last().Stop();
+        audioSources.First().Play();
         animation.clip = animation.GetClip("AbawuwuWheel");
         animation.Play();
         inventorySlot.RemoveItem();

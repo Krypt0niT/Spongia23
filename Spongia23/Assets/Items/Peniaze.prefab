@@ -90,4 +90,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemName: Peniaze
   Description: 
+  PickUpSound: {fileID: 8300000, guid: 2bba4d1a9d7a71440bffd4656f30f8b8, type: 3}
   Type: 3
