@@ -10,6 +10,7 @@ public class ButtonInteraction : MonoBehaviour
     public string SceneName;
     public Item Item;
     public bool HasMonolog;
+    public bool HasSound;
     public ButtonType ButtonType;
     public GameObject[] toLoad;
     public GameObject[] toUnload;
@@ -41,6 +42,10 @@ public class ButtonInteraction : MonoBehaviour
                 monolog.Play();
             }
         }
+        if (HasSound)
+        {
+            PlaySound();
+        }
 
         if (ButtonType == ButtonType.Travel)
         {
@@ -52,11 +57,6 @@ public class ButtonInteraction : MonoBehaviour
                 foreach (var item in toUnload) item.GetComponentInChildren<VideoPlayer>().Stop();
             }
             TravelSpecialCases();
-        }
-
-        if (ButtonType == ButtonType.Monolog) 
-        {
-            print("monolog");
         }
 
         if (ButtonType == ButtonType.Portal)
@@ -120,12 +120,16 @@ public class ButtonInteraction : MonoBehaviour
             {
                 itemFunctions.UseWitch(this);
             }
-            print("use item");
         }
 
         if (ButtonType == ButtonType.PickUp)
         {
             PickUpItem();
+
+            if (name == "Truhla")
+            {
+                transform.parent.parent.GetComponent<AudioSource>().Play();
+            }
         }
 
         if (ButtonType == ButtonType.ChangeGameObject)
@@ -229,6 +233,29 @@ public class ButtonInteraction : MonoBehaviour
         {
             var portal = GameObject.Find("Portal").gameObject;
             portal.GetComponents<AudioSource>().Last().Stop();
+        }
+
+        if (gameObject.name == "DomVstup" && transform.parent.name == "Dom")
+        {
+            GetComponent<AudioSource>().Play();
+        }
+        if (gameObject.name == "back" && transform.parent.name == "DomVnutro")
+        {
+            GetComponent<AudioSource>().Play();
+        }
+    }
+
+    private void PlaySound()
+    {
+        var audioSource = gameObject.GetComponent<AudioSource>();
+        if (!audioSource.isPlaying)
+        {
+            var soundCollection = gameObject.GetComponent<SoundCollection>();
+            if (soundCollection != null)
+            {
+                audioSource.clip = soundCollection.AudioClips[Random.Range(0, soundCollection.AudioClips.Length)];
+            }
+            audioSource.Play();
         }
     }
 }
