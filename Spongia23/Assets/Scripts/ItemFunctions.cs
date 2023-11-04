@@ -211,7 +211,6 @@ public class ItemFunctions : MonoBehaviour
         animation.Play();
         inventorySlot.RemoveItem();
         yield return new WaitForSeconds(6.4f);
-        ReplaceItemInInventory(inventorySlot, item);
         var emptyInventorySlot = GameObject.FindObjectsOfType<InventorySlot>().First(x => x.GetItem() == null);
         emptyInventorySlot.SetItem(item);
         emptyInventorySlot.SetInactive();
