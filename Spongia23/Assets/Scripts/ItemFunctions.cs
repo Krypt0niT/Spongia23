@@ -63,7 +63,7 @@ public class ItemFunctions : MonoBehaviour
             soundEffect.Play();
             var itemCollection = GameObject.FindObjectOfType<ItemCollection>();
             var peniaze = itemCollection.Items.First(x => x.Type == ItemType.Peniaze);
-            //insane animacia pre cauldron
+            GameObject.Find("boom").gameObject.GetComponent<ParticleSystem>().Play();
             ReplaceItemInInventory(selectedInventorySlot, peniaze);
         }
     }
