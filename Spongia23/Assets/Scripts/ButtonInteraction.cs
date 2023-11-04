@@ -136,11 +136,12 @@ public class ButtonInteraction : MonoBehaviour
         {
             var gameChangeComponent = GetComponent<GameObjectChange>();
             var audioSource = gameChangeComponent.GameObject.GetComponent<AudioSource>();
+            gameChangeComponent.Change();
+
             if (audioSource != null)
             {
                 audioSource.Play();
             }
-            gameChangeComponent.Change();
         }
 
         if (ButtonType == ButtonType.ConversationAndItem)
