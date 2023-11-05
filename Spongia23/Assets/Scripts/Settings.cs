@@ -7,7 +7,6 @@ public class Settings : MonoBehaviour
     public float MusicVolume;
     public float SoundEffectsVolume;
 
-    public bool MuteMusic;
-    public bool MuteSoundEffects;
-
+    public bool AnimatedBackgroud = true;
+    public bool ParticleSystem = true;
 }
