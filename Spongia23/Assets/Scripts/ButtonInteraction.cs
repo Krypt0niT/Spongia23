@@ -65,13 +65,18 @@ public class ButtonInteraction : MonoBehaviour
             {
                 if (transform.parent.name == "Portal")
                 {
-                    //minecraft
+                    //minecraft-sf
                     GameObject.Find("PortalSoundPlayer").GetComponents<AudioSource>()[0].Play();
                 }
                 if (transform.parent.name == "Ovca")
                 {
-                    //minecraft
+                    //sf-mario
                     GameObject.Find("PortalSoundPlayer").GetComponents<AudioSource>()[1].Play();
+                }
+                if (transform.parent.name == "TubePortal")
+                {
+                    //mario-pokemon
+                    GameObject.Find("PortalSoundPlayer").GetComponents<AudioSource>()[2].Play();
                 }
                 SceneManager.LoadScene(SceneName);
             } 
