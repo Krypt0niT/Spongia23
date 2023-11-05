@@ -1,9 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class BackgroundIdentifier : MonoBehaviour
 {
+    public bool IsActive;
+    public ParticleSystem[] Particles;
+
+
+    private void Start()
+    {
+        TurnOffParticles();
+    }
+
     public void MoveCameraToBackground(bool smooth = false)
     {
         var cameraFollow = GameObject.FindObjectOfType<CameraFollow>();
@@ -20,5 +30,20 @@ public class BackgroundIdentifier : MonoBehaviour
             cameraFollow.enabled = true;
             cameraFollow.Target = transform;
         }
+
+        var backgroundIdentifiers = GameObject.FindObjectsOfType<BackgroundIdentifier>().ToList();
+
+        //set activity
+        backgroundIdentifiers.ForEach(x => x.IsActive = false);
+        IsActive = true;
+
+        TurnOffParticles();
+    }
+
+    private void TurnOffParticles()
+    {
+        var backgroundIdentifiers = GameObject.FindObjectsOfType<BackgroundIdentifier>().ToList();
+        backgroundIdentifiers.ForEach(x => x.Particles.ToList().ForEach(x => x.Stop()));
+        Particles.ToList().ForEach(x => x.Play());
     }
 }
