@@ -92,7 +92,7 @@ public class ItemFunctions : MonoBehaviour
         {
             var itemCollection = GameObject.FindObjectOfType<ItemCollection>();
             var emerald = itemCollection.Items.First(x => x.Type == ItemType.Emerald);
-            //insane animacia pre trade
+            GameObject.Find("BGS").gameObject.active = false;
             ReplaceItemInInventory(selectedInventorySlot, emerald);
         }
     }
@@ -107,7 +107,7 @@ public class ItemFunctions : MonoBehaviour
         {
             var itemCollection = GameObject.FindObjectOfType<ItemCollection>();
             var peniaze = itemCollection.Items.First(x => x.Type == ItemType.Mec);
-            //insane animacia pre trade
+            
             ReplaceItemInInventory(selectedInventorySlot, peniaze);
         }
     }
