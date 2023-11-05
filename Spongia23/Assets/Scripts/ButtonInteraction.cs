@@ -61,17 +61,20 @@ public class ButtonInteraction : MonoBehaviour
 
         if (ButtonType == ButtonType.Portal)
         {
-            if (transform.parent.name == "Portal")
+            if (!FindObjectsOfType<InventorySlot>().Any(x => x.Selected))
             {
-                //minecraft
-                GameObject.Find("PortalSoundPlayer").GetComponents<AudioSource>().First().Play() ;
-            }
-            if (transform.parent.name == "Ovca")
-            {
-                //minecraft
-                GameObject.Find("PortalSoundPlayer").GetComponents<AudioSource>().Last().Play();
-            }
-            SceneManager.LoadScene(SceneName);
+                if (transform.parent.name == "Portal")
+                {
+                    //minecraft
+                    GameObject.Find("PortalSoundPlayer").GetComponents<AudioSource>().First().Play();
+                }
+                if (transform.parent.name == "Ovca")
+                {
+                    //minecraft
+                    GameObject.Find("PortalSoundPlayer").GetComponents<AudioSource>().Last().Play();
+                }
+                SceneManager.LoadScene(SceneName);
+            } 
         }
 
         if (ButtonType == ButtonType.ItemFunction)
