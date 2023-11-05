@@ -204,13 +204,18 @@ public class ItemFunctions : MonoBehaviour
     {
         var animation = wheel.GetComponent<Animation>();
         var audioSources = wheel.GetComponents<AudioSource>();
+        var backButton = GameObject.Find("abawuwuInside").transform.Find("back").gameObject;
 
         audioSources.Last().Stop();
         audioSources.First().Play();
         animation.clip = animation.GetClip("AbawuwuWheel");
         animation.Play();
         inventorySlot.RemoveItem();
+        backButton.SetActive(false);
+
         yield return new WaitForSeconds(6.4f);
+        
+        backButton.SetActive(true);
 
         var emptyInventorySlot = GameObject.FindObjectsOfType<InventorySlot>()
             .OrderBy(x => x.gameObject.name)
