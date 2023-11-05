@@ -93,6 +93,7 @@ public class ItemFunctions : MonoBehaviour
             var itemCollection = GameObject.FindObjectOfType<ItemCollection>();
             var emerald = itemCollection.Items.First(x => x.Type == ItemType.Emerald);
             GameObject.Find("BGS").gameObject.active = false;
+            GameObject.Find("tradeparticle1").gameObject.GetComponent<ParticleSystem>().Play();
             ReplaceItemInInventory(selectedInventorySlot, emerald);
         }
     }
@@ -107,7 +108,7 @@ public class ItemFunctions : MonoBehaviour
         {
             var itemCollection = GameObject.FindObjectOfType<ItemCollection>();
             var peniaze = itemCollection.Items.First(x => x.Type == ItemType.Mec);
-            
+            GameObject.Find("tradeparticle2").gameObject.GetComponent<ParticleSystem>().Play();
             ReplaceItemInInventory(selectedInventorySlot, peniaze);
         }
     }
