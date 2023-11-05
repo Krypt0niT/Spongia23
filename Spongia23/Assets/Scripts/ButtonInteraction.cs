@@ -66,12 +66,12 @@ public class ButtonInteraction : MonoBehaviour
                 if (transform.parent.name == "Portal")
                 {
                     //minecraft
-                    GameObject.Find("PortalSoundPlayer").GetComponents<AudioSource>().First().Play();
+                    GameObject.Find("PortalSoundPlayer").GetComponents<AudioSource>()[0].Play();
                 }
                 if (transform.parent.name == "Ovca")
                 {
                     //minecraft
-                    GameObject.Find("PortalSoundPlayer").GetComponents<AudioSource>().Last().Play();
+                    GameObject.Find("PortalSoundPlayer").GetComponents<AudioSource>()[1].Play();
                 }
                 SceneManager.LoadScene(SceneName);
             } 
@@ -122,6 +122,10 @@ public class ButtonInteraction : MonoBehaviour
             if (transform.parent.name == "Witch")
             {
                 itemFunctions.UseWitch(this);
+            }
+            if (transform.parent.name == "LuckyBlock")
+            {
+                itemFunctions.TakeLuckyBlock(this);
             }
         }
 

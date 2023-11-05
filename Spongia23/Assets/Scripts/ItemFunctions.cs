@@ -193,6 +193,23 @@ public class ItemFunctions : MonoBehaviour
         }
     }
 
+    public void TakeLuckyBlock(ButtonInteraction buttonInteraction)
+    {
+        
+        var itemCollection = GameObject.FindObjectOfType<ItemCollection>();
+        var item = itemCollection.Items.First(x => x.Type == ItemType.Hubka);
+        //insane animacia pre ochocenie psa
+        var emptyInventorySlot = GameObject.FindObjectsOfType<InventorySlot>()
+            .OrderBy(x => x.gameObject.name)
+            .First(x => x.GetItem() == null);
+
+        emptyInventorySlot.SetItem(item);
+        buttonInteraction.transform.GetComponentInParent<SpriteAnimator>().enabled = false;
+        buttonInteraction.gameObject.SetActive(false);
+
+        buttonInteraction.transform.parent.GetComponent<ChangeTexture>().Change();
+    }
+
     private void ReplaceItemInInventory(InventorySlot inventorySlot, Item item)
     {
         inventorySlot.RemoveItem();

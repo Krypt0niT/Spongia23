@@ -1048,13 +1048,15 @@ GameObject:
   - component: {fileID: 156302908}
   - component: {fileID: 156302907}
   - component: {fileID: 156302906}
+  - component: {fileID: 156302909}
+  - component: {fileID: 156302910}
   m_Layer: 0
   m_Name: LuckyBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &156302905
 Transform:
   m_ObjectHideFlags: 0
@@ -1140,7 +1142,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: b771c86be78f8394eb4982114de1d755, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dfc8d93afd96e9745889b71f80f240f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1151,6 +1153,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &156302909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156302904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed6f1591b3256404dbf6c17b9f56bd2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: dfc8d93afd96e9745889b71f80f240f9, type: 3}
+  - {fileID: 21300000, guid: 621192d5864d5c0498c298ffc33142b5, type: 3}
+  - {fileID: 21300000, guid: ab42abfb763f0d2449ddfbbaba952c48, type: 3}
+  - {fileID: 21300000, guid: 770330e12c2a85840a4a7ddc129aa6af, type: 3}
+  - {fileID: 21300000, guid: f8fb827366092fc48b69ffdd1ec2cdf2, type: 3}
+  - {fileID: 21300000, guid: 080a884db9ebe58459e2e3422cc269eb, type: 3}
+  - {fileID: 21300000, guid: 16d101aa3a0563b438f7429a6a7044b2, type: 3}
+  - {fileID: 21300000, guid: b6c28f1fccbddec4b850983ef342603b, type: 3}
+  - {fileID: 21300000, guid: 39dde712c467aae4cbf7925815770e69, type: 3}
+  - {fileID: 21300000, guid: 6334ff9a81cd93547bb08f15bedcc60c, type: 3}
+  - {fileID: 21300000, guid: 63f82962c86d09846a3e060411ebac8c, type: 3}
+  - {fileID: 21300000, guid: 9311276fe567cca47b682687d194cc03, type: 3}
+  - {fileID: 21300000, guid: 3b5c3b265319a8e458a80c19d2aa6e21, type: 3}
+  - {fileID: 21300000, guid: 368d1c89f078cfa4880bc04608895183, type: 3}
+  - {fileID: 21300000, guid: dda7707fec100564e9059602d7b59b87, type: 3}
+  - {fileID: 21300000, guid: 318bcd7587e6242499f3a446269097a4, type: 3}
+  - {fileID: 21300000, guid: 55f6b3df7e82792459c46234f8fb10c1, type: 3}
+  TimeToSwap: 0.1
+--- !u!114 &156302910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156302904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 763d97f2cceaf2e4aa26439ee2522dfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sprite: {fileID: 21300000, guid: 746806f5ec163064ca80de92ad7052cf, type: 3}
+  Particle: {fileID: 0}
+  time: 0
 --- !u!1 &164433149
 GameObject:
   m_ObjectHideFlags: 0
@@ -3051,7 +3099,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &499330231
 Transform:
   m_ObjectHideFlags: 0
@@ -3364,7 +3412,6 @@ GameObject:
   - component: {fileID: 532736185}
   - component: {fileID: 532736186}
   - component: {fileID: 532736187}
-  - component: {fileID: 532736188}
   m_Layer: 0
   m_Name: Bowser
   m_TagString: Untagged
@@ -3453,7 +3500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b93b69c1d4a1a3488cd02408a7e819c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameObject: {fileID: 156302904}
+  GameObject: {fileID: 1732112637}
   DestroySelf: 0
 --- !u!114 &532736187
 MonoBehaviour:
@@ -3468,20 +3515,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameObject: {fileID: 362572413}
-  DestroySelf: 0
---- !u!114 &532736188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 532736182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b93b69c1d4a1a3488cd02408a7e819c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GameObject: {fileID: 499330230}
   DestroySelf: 0
 --- !u!1 &549385635
 GameObject:
@@ -9641,6 +9674,7 @@ GameObject:
   - component: {fileID: 893874289}
   - component: {fileID: 893874291}
   - component: {fileID: 893874290}
+  - component: {fileID: 893874292}
   m_Layer: 0
   m_Name: PortalSoundPlayer
   m_TagString: Untagged
@@ -9772,6 +9806,102 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.2
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &893874292
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893874288}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -11055,7 +11185,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1732112638
 Transform:
   m_ObjectHideFlags: 0
@@ -11107,7 +11237,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.93107474}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -11115,11 +11245,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.41004673, y: 0.36857477}
-      - {x: -0.41004673, y: -0.3942757}
-      - {x: 0.4053738, y: -0.3942757}
-      - {x: 0.4053738, y: 0.333528}
-      - {x: 0.36799064, y: 0.36857477}
+    - - {x: 0.26333335, y: 0.3216667}
+      - {x: -0.24000001, y: 0.3216667}
+      - {x: -0.24166667, y: 0.32}
+      - {x: -0.3175, y: 0.31833333}
+      - {x: -0.3216667, y: 0.2575}
+      - {x: -0.3216667, y: -0.29333335}
+      - {x: -0.24916667, y: -0.3216667}
+      - {x: 0.245, y: -0.3216667}
+      - {x: 0.3216667, y: -0.24000001}
+      - {x: 0.3216667, y: 0.26333335}
   m_UseDelaunayMesh: 0
 --- !u!111 &1732112640
 Animation:
@@ -11153,10 +11288,10 @@ MonoBehaviour:
   SmoothTransition: 0
   BackgroundIdentifier: {fileID: 0}
   SceneName: 
-  Item: {fileID: 4394669551963062379, guid: 68476e9f79b5e9e49ab0bbd1861af043, type: 3}
+  Item: {fileID: 0}
   HasMonolog: 0
   HasSound: 0
-  ButtonType: 4
+  ButtonType: 2
   toLoad: []
   toUnload: []
 --- !u!114 &1732112642
@@ -11261,7 +11396,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: 3344d36b7328408448692c300fa3fe00, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dfc8d93afd96e9745889b71f80f240f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
