@@ -173,6 +173,7 @@ public class ItemFunctions : MonoBehaviour
             {
                 component.Change();
             }
+            buttonInteraction.transform.parent.parent.Find("BowserDead").GetComponent<AudioSource>().Play();
             buttonInteraction.transform.parent.gameObject.SetActive(false); 
         }
     }
