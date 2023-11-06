@@ -10,6 +10,7 @@ public class SceneLoader : MonoBehaviour
     {
         var gameScenes = GameObject.FindObjectsOfType<GameIdentifier>(true);
         var currentGame = gameScenes.First(x => x.SceneName == SceneManager.GetActiveScene().name);
+        var manager = GameObject.FindObjectOfType<Manager>();
 
         foreach (var gameScene in gameScenes)
         {
@@ -17,6 +18,7 @@ public class SceneLoader : MonoBehaviour
         }
         currentGame.gameObject.SetActive(true);
         ReloadEffects();
+        manager.ApplySetting();
     }
 
     private void ReloadEffects() 

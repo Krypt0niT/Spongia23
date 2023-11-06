@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class Manager : MonoBehaviour
 {
@@ -34,5 +35,21 @@ public class Manager : MonoBehaviour
         {
             transform.gameObject.SetActive(true);
         }
+    }
+    
+    public void ApplySetting()
+    {
+        var settings = this.GetComponent<Settings>();
+
+        var musicAudioSources = FindObjectsOfType<AudioSource>(true).Where(x => x.gameObject.name == "Music").ToList();
+        var effectsAudioSources = FindObjectsOfType<AudioSource>(true).Where(x => x.name != "Music").ToList();
+
+        var videoPlayers = FindObjectsOfType<VideoPlayer>().ToList();
+
+
+        musicAudioSources.ForEach(x => x.volume = settings.MusicVolume);
+        effectsAudioSources.ForEach(x => x.volume = settings.SoundEffectsVolume);
+
+        videoPlayers.ForEach(x => x.enabled = settings.AnimatedBackgroud);
     }
 }

@@ -7,20 +7,19 @@ using UnityEngine.UI;
 
 public class MainMenuSettings : MonoBehaviour
 {
-    private string enviromentFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-    private string saveFolder;
-    private string saveFile;
+    private string saveFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\ChunkerVerse";
+    private string saveFile = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\ChunkerVerse" + "\\Settings.json";
 
     private void Start()
     {
-        saveFolder = Path.Combine(enviromentFolder, "ChunkerVerse");
-        saveFile = saveFolder + "\\Settings.json";
+        Load();
     }
 
     public void Back()
     {
         GameObject.FindObjectOfType<MainMenu>(true).gameObject.SetActive(true);
-        this.gameObject.SetActive(false);
+        var thisButton = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
+        thisButton.transform.parent.gameObject.SetActive(false);
     }
 
     public void Save()
@@ -40,7 +39,8 @@ public class MainMenuSettings : MonoBehaviour
     public void Load()
     {
         var settings = GameObject.FindObjectOfType<Settings>();
-        JsonUtility.FromJsonOverwrite(saveFile, settings);
+        var json = File.ReadAllText(saveFile);
+        JsonUtility.FromJsonOverwrite(json, settings);
     }
     
 

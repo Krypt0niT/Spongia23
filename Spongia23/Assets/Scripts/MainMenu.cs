@@ -8,10 +8,14 @@ public class MainMenu : MonoBehaviour
     public GameObject SettingsGameObject;
     public GameObject InfoGameObject;
 
+    private void Start()
+    {
+        FindObjectOfType<MainMenuSettings>(true).Load();
+    }
 
     public void Play()
     {
-
+        GameObject.FindObjectOfType<Manager>().GameStart();
     }
 
     public void Settings()
