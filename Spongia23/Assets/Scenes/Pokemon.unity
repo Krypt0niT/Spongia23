@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -33644,6 +33644,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
     TotalClicks: 0
+  GameEnded: 0
 --- !u!4 &844160058
 Transform:
   m_ObjectHideFlags: 0
@@ -39585,6 +39586,7 @@ GameObject:
   - component: {fileID: 1032911849}
   - component: {fileID: 1032911851}
   - component: {fileID: 1032911850}
+  - component: {fileID: 1032911852}
   m_Layer: 0
   m_Name: Monolog
   m_TagString: Untagged
@@ -39616,10 +39618,10 @@ Animation:
   m_GameObject: {fileID: 1032911848}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 8492cb54ea84051438e3150f121b9251, type: 2}
+  m_Animation: {fileID: 0}
   m_Animations:
-  - {fileID: 7400000, guid: 8492cb54ea84051438e3150f121b9251, type: 2}
-  - {fileID: 7400000, guid: 1383498030535554eadf5e6129d574da, type: 2}
+  - {fileID: 7400000, guid: 979bcb7882f71fa418ee6279ef64e1db, type: 2}
+  - {fileID: 7400000, guid: 487e5b5f454042a48af7bd08c1afb4aa, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -39676,6 +39678,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1032911852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032911848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c85101e819d6c0f4aaa45f7ea5bc48a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowClip: {fileID: 7400000, guid: 979bcb7882f71fa418ee6279ef64e1db, type: 2}
+  HideClip: {fileID: 7400000, guid: 487e5b5f454042a48af7bd08c1afb4aa, type: 2}
 --- !u!1 &1053647908
 GameObject:
   m_ObjectHideFlags: 0
@@ -40481,7 +40497,7 @@ MonoBehaviour:
   BackgroundIdentifier: {fileID: 0}
   SceneName: 
   Item: {fileID: 0}
-  HasMonolog: 0
+  HasMonolog: 1
   HasSound: 0
   ButtonType: 7
   toLoad: []
