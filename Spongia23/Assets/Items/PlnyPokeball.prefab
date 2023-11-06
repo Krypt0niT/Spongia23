@@ -90,4 +90,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemName: "Zapa\u013Eova\u010D"
   Description: 
+  PickUpSound: {fileID: 8300000, guid: d2375e0b55960a948b181e3fb6dc6fcb, type: 3}
   Type: 9
