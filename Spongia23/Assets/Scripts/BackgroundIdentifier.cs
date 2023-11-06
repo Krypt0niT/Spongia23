@@ -8,7 +8,6 @@ public class BackgroundIdentifier : MonoBehaviour
     public bool IsActive;
     public ParticleSystem[] Particles;
 
-
     private void Start()
     {
         TurnOffParticles();
@@ -44,6 +43,10 @@ public class BackgroundIdentifier : MonoBehaviour
     {
         var backgroundIdentifiers = GameObject.FindObjectsOfType<BackgroundIdentifier>().ToList();
         backgroundIdentifiers.ForEach(x => x.Particles.ToList().ForEach(x => x.Stop()));
-        Particles.ToList().ForEach(x => x.Play());
+
+        if (FindObjectOfType<Settings>().ParticleSystem)
+        {
+            Particles.ToList().ForEach(x => x.Play());
+        }
     }
 }

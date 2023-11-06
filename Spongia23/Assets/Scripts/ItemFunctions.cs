@@ -121,7 +121,7 @@ public class ItemFunctions : MonoBehaviour
         var item = selectedInventorySlot.GetItem();
         if (item.Type == ItemType.Dog)
         {
-            
+            buttonInteraction.GetComponent<GameObjectChange>().GameObject.GetComponent<AudioSource>().Play();
             //insane animacia pre yneskodnenie
             buttonInteraction.GetComponent<GameObjectChange>().Change();
         }
@@ -153,8 +153,9 @@ public class ItemFunctions : MonoBehaviour
         {
             var itemCollection = GameObject.FindObjectOfType<ItemCollection>();
             var dog = itemCollection.Items.First(x => x.Type == ItemType.Dog);
-            GameObject.Find("Pes").gameObject.active = false;
-            GameObject.Find("BGD").gameObject.active = false;
+
+            GameObject.Find("Pes").gameObject.SetActive(false);
+            GameObject.Find("BGD").gameObject.SetActive(false);
             GameObject.Find("heart").gameObject.GetComponent<ParticleSystem>().Play();
             //insane animacia pre ochocenie psa
             ReplaceItemInInventory(selectedInventorySlot, dog);

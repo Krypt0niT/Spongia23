@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class MainMenuSettings : MonoBehaviour
 {
+    public MainMenu MainMenu;
+
     private string saveFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\ChunkerVerse";
     private string saveFile = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\ChunkerVerse" + "\\Settings.json";
 
@@ -17,7 +19,7 @@ public class MainMenuSettings : MonoBehaviour
 
     public void Back()
     {
-        GameObject.FindObjectOfType<MainMenu>(true).gameObject.SetActive(true);
+        MainMenu.gameObject.SetActive(true);
         var thisButton = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
         thisButton.transform.parent.gameObject.SetActive(false);
     }
@@ -34,6 +36,7 @@ public class MainMenuSettings : MonoBehaviour
         settings.ParticleSystem = GameObject.Find("ParticleTogler").GetComponent<Toggle>().isOn;
 
         SaveSettings();
+        FindObjectOfType<Manager>().ApplySetting();
     }
 
     public void Load()

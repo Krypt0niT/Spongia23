@@ -10,6 +10,7 @@ public class Manager : MonoBehaviour
     [SerializeField] public GameStats stats;
 
     public bool GameEnded = false;
+    public GameObject PauseMenu;
 
     void Start()
     {
@@ -20,7 +21,7 @@ public class Manager : MonoBehaviour
             Destroy(this.gameObject);
             return;
         }
-        //GameStart();
+        DontDestroyOnLoad(PauseMenu);
     }
 
     private void Update()
@@ -36,6 +37,13 @@ public class Manager : MonoBehaviour
                 GameEnded = false;
             }
 
+        }
+        if (SceneManager.GetActiveScene().name != "Menu")
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                PauseMenu.SetActive(!PauseMenu.activeInHierarchy);
+            }
         }
     }
 
@@ -61,6 +69,24 @@ public class Manager : MonoBehaviour
         musicAudioSources.ForEach(x => x.volume = settings.MusicVolume);
         effectsAudioSources.ForEach(x => x.volume = settings.SoundEffectsVolume);
 
-        videoPlayers.ForEach(x => x.enabled = settings.AnimatedBackgroud);
+        if (settings.AnimatedBackgroud)
+        {
+            videoPlayers.ForEach(x => x.playbackSpeed = 1);
+        }
+        else
+        {
+            videoPlayers.ForEach(x => x.playbackSpeed = 0);
+        }
+
+        if (!settings.ParticleSystem)
+        {
+            var backgroundIdentifiers = GameObject.FindObjectsOfType<BackgroundIdentifier>().ToList();
+            backgroundIdentifiers.ForEach(x => x.Particles.ToList().ForEach(x => x.Stop()));
+        }
+        else
+        {
+            var activeBackground = GameObject.FindObjectsOfType<BackgroundIdentifier>().ToList().FirstOrDefault(x => x.IsActive);
+            activeBackground.Particles.ToList().Where(x => !x.isPlaying).ToList().ForEach(x => x.Play());
+        }
     }
 }
