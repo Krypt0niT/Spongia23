@@ -8,6 +8,9 @@ using UnityEngine.Video;
 public class Manager : MonoBehaviour
 {
     [SerializeField] public GameStats stats;
+
+    public bool GameEnded = false;
+
     void Start()
     {
         stats = new GameStats();
@@ -24,7 +27,15 @@ public class Manager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0)) 
         {
-            stats.TotalClicks += 1;        
+            stats.TotalClicks += 1;
+            if (GameEnded)
+            {
+                var games = GameObject.FindObjectsOfType<GameIdentifier>().ToList();
+                games.ForEach(x => SceneManager.MoveGameObjectToScene(x.gameObject, SceneManager.GetActiveScene()));
+                SceneManager.LoadScene(0);
+                GameEnded = false;
+            }
+
         }
     }
 

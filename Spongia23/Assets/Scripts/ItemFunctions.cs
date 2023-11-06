@@ -189,10 +189,9 @@ public class ItemFunctions : MonoBehaviour
         }
         if (selectedInventorySlot.GetItem().Type == ItemType.PlnyPokeball)
         {
-            var itemCollection = GameObject.FindObjectOfType<ItemCollection>();
-            var sponge = itemCollection.Items.First(x => x.Type == ItemType.Spongia);
-            //insane animacia pre ochocenie psa
-            ReplaceItemInInventory(selectedInventorySlot, sponge);
+            var spongia = GameObject.Find("Špongia");
+
+            spongia.GetComponent<SpongiaEnd>().Play();
         }
     }
 
