@@ -10,6 +10,7 @@ public class SpongiaEnd : MonoBehaviour
 
     public TextMeshProUGUI TimeObject;
     public TextMeshProUGUI Clicks;
+    public ParticleSystem ParticleSystem;
 
     public void Play()
     {
@@ -26,10 +27,13 @@ public class SpongiaEnd : MonoBehaviour
         transform.Find("Black").GetComponent<Animation>().Play();
 
         GameObject.Find("Inventory").SetActive(false);
+
         yield return new WaitForSeconds(8.5f);
+
         Text.SetActive(true);
         GameObject.FindObjectOfType<Manager>().GameEnded = true;
 
+        ParticleSystem.Play();
         
         var cas = (int)Time.time;
         var minuty = cas / 60;
