@@ -207,8 +207,8 @@ public class ItemFunctions : MonoBehaviour
 
         emptyInventorySlot.SetItem(item);
         buttonInteraction.transform.GetComponentInParent<SpriteAnimator>().enabled = false;
-        buttonInteraction.gameObject.SetActive(false);
-
+        buttonInteraction.gameObject.SetActive(false); 
+        GameObject.Find("luckyblockaudio").gameObject.GetComponent<AudioSource>().Play();
         buttonInteraction.transform.parent.GetComponent<ChangeTexture>().Change();
     }
 
