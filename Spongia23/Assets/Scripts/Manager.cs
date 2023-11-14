@@ -10,6 +10,7 @@ public class Manager : MonoBehaviour
     [SerializeField] public GameStats stats;
 
     public bool GameEnded = false;
+    public bool SpongiaPlaying = false;
     public GameObject PauseMenu;
 
     void Start()
@@ -31,8 +32,9 @@ public class Manager : MonoBehaviour
             stats.TotalClicks += 1;
             if (GameEnded)
             {
-                var games = GameObject.FindObjectsOfType<GameIdentifier>().ToList();
+                var games = GameObject.FindObjectsOfType<GameIdentifier>(true).ToList();
                 games.ForEach(x => SceneManager.MoveGameObjectToScene(x.gameObject, SceneManager.GetActiveScene()));
+                GameObject.FindObjectsOfType<InventorySlot>(true).ToList().ForEach(x => x.RemoveItem());
                 SceneManager.LoadScene(0);
                 GameEnded = false;
             }
@@ -40,11 +42,13 @@ public class Manager : MonoBehaviour
         }
         if (SceneManager.GetActiveScene().name != "Menu")
         {
+            if (SpongiaPlaying) return;
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 PauseMenu.SetActive(!PauseMenu.activeInHierarchy);
             }
         }
+        stats.TotalTime += Time.deltaTime;
     }
 
     public void GameStart()
@@ -54,6 +58,7 @@ public class Manager : MonoBehaviour
         {
             transform.gameObject.SetActive(true);
         }
+        stats = new GameStats();
     }
     
     public void ApplySetting()

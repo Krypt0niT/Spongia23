@@ -22,7 +22,7 @@ public class SpongiaEnd : MonoBehaviour
         GetComponent<SpriteRenderer>().enabled = true;
         GetComponent<Animation>().Play();
         GetComponent<AudioSource>().Play();
-
+        FindObjectOfType<Manager>().SpongiaPlaying = true;
         transform.Find("Black").GetComponent<SpriteRenderer>().enabled = true;
         transform.Find("Black").GetComponent<Animation>().Play();
 
@@ -35,10 +35,20 @@ public class SpongiaEnd : MonoBehaviour
 
         ParticleSystem.Play();
         
-        var cas = (int)Time.time;
+        var cas = (int)GameObject.FindObjectOfType<Manager>().stats.TotalTime;
         var minuty = cas / 60;
         var sekundy = cas % 60;
-        TimeObject.text = "Čas: " + minuty + ":" + sekundy;
+        if (sekundy >= 10)
+        {
+            TimeObject.text = "Čas: " + minuty + ":" + sekundy;
+        }
+        else
+        {
+            TimeObject.text = "Čas: " + minuty + ":0" + sekundy;
+        }
+        
         Clicks.text = "Počet kliknutí: " + GameObject.FindObjectOfType<Manager>().stats.TotalClicks;
+        FindObjectOfType<Manager>().SpongiaPlaying = false;
+
     }
 }

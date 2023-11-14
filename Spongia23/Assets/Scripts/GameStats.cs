@@ -7,9 +7,11 @@ using UnityEngine;
 public class GameStats
 {
     public int TotalClicks;
+    public float TotalTime;
 
     public GameStats()
     {
         TotalClicks = 0;
+        TotalTime = 0;
     }
 }

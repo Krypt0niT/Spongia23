@@ -45,8 +45,10 @@ public class MainMenu : MonoBehaviour
     {
         if (transform.parent.name == "PauseMenu")
         {
-            var games = GameObject.FindObjectsOfType<GameIdentifier>().ToList();
+            var games = GameObject.FindObjectsOfType<GameIdentifier>(true).ToList();
             games.ForEach(x => SceneManager.MoveGameObjectToScene(x.gameObject, SceneManager.GetActiveScene()));
+            GameObject.FindObjectsOfType<InventorySlot>(true).ToList().ForEach(x => x.RemoveItem());
+            
             SceneManager.LoadScene(0);
             this.transform.parent.gameObject.SetActive(false);
             return;

@@ -196,6 +196,8 @@ public class ItemFunctions : MonoBehaviour
             var spongia = GameObject.Find("Špongia");
 
             spongia.GetComponent<SpongiaEnd>().Play();
+            buttonInteraction.HasMonolog = false;
+            buttonInteraction.transform.parent.Find("Monolog").gameObject.SetActive(false);
         }
     }
 
